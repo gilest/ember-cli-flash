@@ -3,21 +3,43 @@ import { equal, sort, mapBy } from '@ember/object/computed';
 import Service from '@ember/service';
 import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
-import { set, get, setProperties, computed } from '@ember/object';
+// import { computed } from '@ember/object';
 import { classify } from '@ember/string';
-import { A as emberArray } from '@ember/array';
-import FlashMessage from '../flash/object';
+import FlashObject from '../flash/object';
 import objectWithout from '../utils/object-without';
 import { getOwner } from '@ember/application';
 import flashMessageOptions from '../utils/flash-message-options';
 import getWithDefault from '../utils/get-with-default';
+import { registerDestructor } from '@ember/destroyable';
+
+function destructor(instance) {
+  instance.clearMessages();
+}
+
+export interface MessageOptions {
+  type: string;
+  priority: number;
+  timeout: number;
+  sticky: boolean;
+  showProgress: boolean;
+  extendedTimeout: number;
+  destroyOnClick: boolean;
+  onDestroy: () => void;
+  [key: string]: unknown;
+}
+
+export interface CustomMessageInfo extends Partial<MessageOptions> {
+  message: string;
+}
+
+export interface FlashFunction {
+  (message: string, options?: Partial<MessageOptions>): FlashMessagesService;
+}
 
 export default class FlashMessagesService extends Service {
-  @(equal('queue.length', 0).readOnly())
-  isEmpty;
+  @(equal('queue.length', 0).readOnly()) readonly isEmpty: boolean;
 
-  @(mapBy('queue', '_guid').readOnly())
-  _guids;
+  @(mapBy('queue', '_guid').readOnly()) _guids;
 
   @(sort('queue', function (a, b) {
     if (a.priority < b.priority) {
@@ -27,20 +49,27 @@ export default class FlashMessagesService extends Service {
     }
     return 0;
   }).readOnly())
-  arrangedQueue;
+  readonly arrangedQueue: FlashObject[];
+
+  queue: FlashObject[] = [];
+  defaultPreventDuplicates = false;
+
+  // Default methods defined by flashMessageDefaults
+  success: FlashFunction;
+  warning: FlashFunction;
+  info: FlashFunction;
+  danger: FlashFunction;
+  alert: FlashFunction;
+  secondary: FlashFunction;
 
   constructor() {
     super(...arguments);
     this._setDefaults();
-    this.queue = emberArray();
+
+    registerDestructor(this, destructor);
   }
 
-  willDestroy() {
-    super.willDestroy(...arguments);
-    this.clearMessages();
-  }
-
-  add(options = {}) {
+  add(options: CustomMessageInfo) {
     this._enqueue(this._newFlashMessage(options));
 
     return this;
@@ -50,37 +79,40 @@ export default class FlashMessagesService extends Service {
     const flashes = this.queue;
 
     if (isNone(flashes)) {
-      return;
+      return this;
     }
 
     flashes.forEach((flash) => flash.destroyMessage());
-    flashes.clear();
+    this.queue = [];
 
     return this;
   }
 
-  registerTypes(types = emberArray()) {
+  registerTypes(types: string[] = []) {
     types.forEach((type) => this._registerType(type));
 
     return this;
   }
 
   peekFirst() {
-    return this.queue.firstObject;
+    return this.queue.at(0);
   }
 
   peekLast() {
-    return this.queue.lastObject;
+    return this.queue.at(-1);
   }
 
   getFlashObject() {
     const errorText = 'A flash message must be added before it can be returned';
-    assert(errorText, this.queue.length);
+    const flashObject = this.peekLast();
+    if (!flashObject) {
+      throw new Error(errorText);
+    }
 
-    return this.peekLast();
+    return flashObject;
   }
 
-  _newFlashMessage(options = {}) {
+  _newFlashMessage(options: CustomMessageInfo) {
     assert(
       'The flash message cannot be empty when preventDuplicates is enabled.',
       this.defaultPreventDuplicates ? options.message : true,
@@ -97,18 +129,18 @@ export default class FlashMessagesService extends Service {
     const flashMessageOptions = Object.assign({}, defaults, { flashService });
 
     for (let key in options) {
-      const value = get(options, key);
+      const value = options[key];
       const option = this._getOptionOrDefault(key, value);
 
-      set(flashMessageOptions, key, option);
+      flashMessageOptions[key] = option;
     }
 
-    return FlashMessage.create(flashMessageOptions);
+    return FlashObject.create(flashMessageOptions);
   }
 
   _getOptionOrDefault(key, value) {
     const defaults = getWithDefault(this, 'flashMessageDefaults', {});
-    const defaultOption = get(defaults, key);
+    const defaultOption = defaults[key];
 
     if (typeOf(value) === 'undefined') {
       return defaultOption;
@@ -117,7 +149,7 @@ export default class FlashMessagesService extends Service {
     return value;
   }
 
-  @computed
+  // @computed
   get flashMessageDefaults() {
     const config = getOwner(this).resolveRegistration('config:environment');
     const overrides = getWithDefault(config, 'flashMessageDefaults', {});
@@ -130,19 +162,19 @@ export default class FlashMessagesService extends Service {
     for (let key in defaults) {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
-
-      set(this, defaultKey, defaults[key]);
+      this[defaultKey] = defaults[key];
     }
 
-    this.registerTypes(getWithDefault(this, 'defaultTypes', emberArray()));
+    this.registerTypes(getWithDefault(this, 'defaultTypes', []));
   }
 
   _registerType(type) {
     assert('The flash type cannot be undefined', type);
 
-    this[type] = (message, options = {}) => {
+    this[type] = (message, options: CustomMessageInfo) => {
       const flashMessageOptions = Object.assign({}, options);
-      setProperties(flashMessageOptions, { message, type });
+      flashMessageOptions.message = message;
+      flashMessageOptions.type = type;
 
       return this.add(flashMessageOptions);
     };
@@ -175,6 +207,6 @@ export default class FlashMessagesService extends Service {
       }
     }
 
-    return this.queue.pushObject(flashInstance);
+    return this.queue.push(flashInstance);
   }
 }
