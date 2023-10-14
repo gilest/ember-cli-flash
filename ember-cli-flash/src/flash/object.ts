@@ -1,28 +1,47 @@
 import Evented from '@ember/object/evented';
-import EmberObject, { set } from '@ember/object';
+import EmberObject from '@ember/object';
 import { cancel, later } from '@ember/runloop';
+import { EmberRunTimer } from "@ember/runloop/types";
 import { guidFor } from '../utils/computed';
+import FlashMessagesService from '../services/flash-messages';
+import { registerDestructor } from '@ember/destroyable';
+
+function destructor(instance) {
+  instance.onDestroy?.();
+
+  instance._cancelTimer();
+  instance._cancelTimer('exitTaskInstance');
+}
 
 // Note:
 // To avoid https://github.com/adopted-ember-addons/ember-cli-flash/issues/341 from happening, this class can't simply be called Object
 export default class FlashObject extends EmberObject.extend(Evented) {
+  flashService: FlashMessagesService;
+
   exitTimer = null;
   exiting = false;
   isExitable = true;
-  initializedTime = null;
+  initializedTime: number = new Date().getTime();
+  sticky = false;
 
-  @(guidFor('message').readOnly())
-  _guid;
+  exitTaskInstance?: EmberRunTimer;
+  timerTaskInstance? : EmberObject;
 
-  // eslint-disable-next-line ember/classic-decorator-hooks
-  init() {
-    super.init(...arguments);
+  onDestroy?: () => void;
+  timeout?: number;
+  extendedTimeout?: number;
+
+  @(guidFor('message').readOnly()) _guid;
+
+  constructor() {
+    super();
 
     if (this.sticky) {
       return;
     }
     this.timerTask();
-    this._setInitializedTime();
+
+    registerDestructor(this, destructor);
   }
 
   destroyMessage() {
@@ -43,22 +62,12 @@ export default class FlashObject extends EmberObject.extend(Evented) {
     this.trigger('didExitMessage');
   }
 
-  willDestroy() {
-    if (this.onDestroy) {
-      this.onDestroy();
-    }
-
-    this._cancelTimer();
-    this._cancelTimer('exitTaskInstance');
-    super.willDestroy(...arguments);
-  }
-
   preventExit() {
-    set(this, 'isExitable', false);
+    this.isExitable = false;
   }
 
   allowExit() {
-    set(this, 'isExitable', true);
+    this.isExitable = true;
     this._checkIfShouldExit();
   }
 
@@ -69,29 +78,22 @@ export default class FlashObject extends EmberObject.extend(Evented) {
     const timerTaskInstance = later(() => {
       this.exitMessage();
     }, this.timeout);
-    set(this, 'timerTaskInstance', timerTaskInstance);
+    this.timerTaskInstance = timerTaskInstance;
   }
 
   exitTimerTask() {
     if (this.isDestroyed) {
       return;
     }
-    set(this, 'exiting', true);
+    this.exiting, true;
     if (this.extendedTimeout) {
       let exitTaskInstance = later(() => {
         this._teardown();
       }, this.extendedTimeout);
-      set(this, 'exitTaskInstance', exitTaskInstance);
+      this.exitTaskInstance, exitTaskInstance;
     } else {
       this._teardown();
     }
-  }
-
-  _setInitializedTime() {
-    let currentTime = new Date().getTime();
-    set(this, 'initializedTime', currentTime);
-
-    return this.initializedTime;
   }
 
   _getElapsedTime() {
@@ -107,7 +109,7 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   }
 
   _checkIfShouldExit() {
-    if (this._getElapsedTime() >= this.timeout && !this.sticky) {
+    if (this._getElapsedTime() >= (this.timeout ?? 0) && !this.sticky) {
       this._cancelTimer();
       this.exitMessage();
     }
