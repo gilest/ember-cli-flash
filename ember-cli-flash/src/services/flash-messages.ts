@@ -4,7 +4,6 @@ import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
 import { classify } from '@ember/string';
 import FlashObject from '../flash/object.ts';
-import objectWithout from '../utils/object-without.ts';
 import { getOwner } from '@ember/owner';
 import flashMessageOptions from '../utils/flash-message-options.ts';
 import { registerDestructor } from '@ember/destroyable';
@@ -126,7 +125,7 @@ export default class FlashMessagesService extends Service {
 
     const flashService = this;
     const allDefaults = this.flashMessageDefaults ?? {};
-    const defaults = objectWithout(allDefaults, ['types', 'preventDuplicates']);
+    const defaults = { ...allDefaults, types: undefined, preventDuplicates: undefined };
 
     const flashMessageOptions = Object.assign({}, defaults, { flashService });
 
