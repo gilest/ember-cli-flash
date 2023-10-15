@@ -15,7 +15,7 @@ export default class FlashObject extends FlashObject_base {
     message: string;
     type: string;
     timeout?: number;
-    priority?: number;
+    priority: number;
     sticky: boolean;
     showProgress: boolean;
     destroyOnClick: boolean;

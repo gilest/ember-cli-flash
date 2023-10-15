@@ -38,15 +38,10 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   }
 
   init() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    super.init(...arguments);
-
     if (this.sticky) {
       return;
     }
     this.timerTask();
-    this._setInitializedTime();
   }
 
   willDestroy() {
@@ -56,10 +51,6 @@ export default class FlashObject extends EmberObject.extend(Evented) {
 
     this._cancelTimer();
     this._cancelTimer('exitTaskInstance');
-
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    super.willDestroy(...arguments);
   }
 
   destroyMessage() {
