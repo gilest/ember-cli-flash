@@ -1,8 +1,6 @@
-declare module 'ember-cli-flash/services/flash-messages' {
-  import Service from '@ember/service';
-  import FlashObject from 'ember-cli-flash/flash/object';
-
-  export interface MessageOptions {
+import Service from '@ember/service';
+import FlashObject from '../flash/object.ts';
+export interface MessageOptions {
     type: string;
     priority: number;
     timeout: number;
@@ -12,34 +10,47 @@ declare module 'ember-cli-flash/services/flash-messages' {
     destroyOnClick: boolean;
     onDestroy: () => void;
     [key: string]: unknown;
-  }
-
-  export interface CustomMessageInfo extends Partial<MessageOptions> {
+}
+export interface CustomMessageInfo extends Partial<MessageOptions> {
     message: string;
-  }
-
-  export interface FlashFunction {
-    (message: string, options?: Partial<MessageOptions>): FlashMessageService;
-  }
-
-  class FlashMessageService extends Service {
-    queue: FlashObject[];
-    readonly arrangedQueue: FlashObject[];
+}
+export interface FlashFunction {
+    (message: string, options?: Partial<MessageOptions>): FlashMessagesService;
+}
+export default class FlashMessagesService extends Service {
     readonly isEmpty: boolean;
+    _guids: string[];
+    readonly arrangedQueue: FlashObject[];
+    queue: FlashObject[];
+    defaultPreventDuplicates: boolean;
     success: FlashFunction;
     warning: FlashFunction;
     info: FlashFunction;
     danger: FlashFunction;
     alert: FlashFunction;
     secondary: FlashFunction;
-    add(messageInfo: CustomMessageInfo): this;
+    constructor();
+    add(options: CustomMessageInfo): this;
     clearMessages(): this;
-    registerTypes(types: string[]): this;
-    getFlashObject(): FlashObject;
+    registerTypes(types?: string[]): this;
     peekFirst(): FlashObject | undefined;
     peekLast(): FlashObject | undefined;
-    readonly flashMessageDefaults: any;
-  }
-
-  export default FlashMessageService;
+    getFlashObject(): FlashObject;
+    _newFlashMessage(options: CustomMessageInfo): FlashObject;
+    _getOptionOrDefault(key: string, value: unknown): unknown;
+    get flashMessageDefaults(): {
+        timeout: number;
+        extendedTimeout: number;
+        priority: number;
+        sticky: boolean;
+        showProgress: boolean;
+        type: string;
+        types: string[];
+        preventDuplicates: boolean;
+    } & CustomMessageInfo;
+    _setDefaults(): void;
+    _registerType(type: string): void;
+    _hasDuplicate(guid: string): boolean;
+    _enqueue(flashInstance: FlashObject): FlashObject[] | undefined;
 }
+//# sourceMappingURL=flash-messages.d.ts.map

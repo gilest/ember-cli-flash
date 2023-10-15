@@ -1,12 +1,12 @@
 import Evented from '@ember/object/evented';
 import EmberObject from '@ember/object';
 import { cancel, later } from '@ember/runloop';
-import { EmberRunTimer } from "@ember/runloop/types";
-import { guidFor } from '../utils/computed';
-import FlashMessagesService from '../services/flash-messages';
+import { guidFor } from '../utils/computed.ts';
+import FlashMessagesService from '../services/flash-messages.ts';
 import { registerDestructor } from '@ember/destroyable';
+import type { EmberRunTimer } from "@ember/runloop/types";
 
-function destructor(instance) {
+function destructor(instance: FlashObject) {
   instance.onDestroy?.();
 
   instance._cancelTimer();
@@ -16,7 +16,7 @@ function destructor(instance) {
 // Note:
 // To avoid https://github.com/adopted-ember-addons/ember-cli-flash/issues/341 from happening, this class can't simply be called Object
 export default class FlashObject extends EmberObject.extend(Evented) {
-  flashService: FlashMessagesService;
+  declare flashService: FlashMessagesService;
 
   exitTimer = null;
   exiting = false;
@@ -24,19 +24,20 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   initializedTime: number = new Date().getTime();
 
   exitTaskInstance?: EmberRunTimer;
-  timerTaskInstance? : EmberObject;
+  timerTaskInstance?: EmberRunTimer;
 
-  extendedTimeout?: number;
-  message: string;
-  type: string;
-  timeout?: number;
-  priority?: number
-  sticky: boolean;
-  showProgress: boolean;
-  destroyOnClick: boolean;
-  onDestroy?: () => void;
+  declare extendedTimeout?: number;
+  declare message: string;
+  declare type: string;
+  declare timeout?: number;
+  declare priority?: number
+  declare sticky: boolean;
+  declare showProgress: boolean;
+  declare destroyOnClick: boolean;
+  declare preventDuplicates: boolean;
+  declare onDestroy?: () => void;
 
-  @(guidFor('message').readOnly()) _guid;
+  @(guidFor('message').readOnly()) declare _guid: string;
 
   constructor() {
     super();
@@ -107,7 +108,7 @@ export default class FlashObject extends EmberObject.extend(Evented) {
     return currentTime - this.initializedTime;
   }
 
-  _cancelTimer(taskName = 'timerTaskInstance') {
+  _cancelTimer(taskName: 'timerTaskInstance' | 'exitTaskInstance' = 'timerTaskInstance') {
     if (this[taskName]) {
       cancel(this[taskName]);
     }
@@ -121,9 +122,8 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   }
 
   _teardown() {
-    const queue = this.flashService?.queue;
-    if (queue) {
-      queue.removeObject(this);
+    if (this.flashService?.queue) {
+      this.flashService.queue = this.flashService.queue.filter((flash) => flash !== this);
     }
     this.destroy();
     this.trigger('didDestroyMessage');

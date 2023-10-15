@@ -7,9 +7,11 @@ import { next, cancel } from '@ember/runloop';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
 import { modifier } from 'ember-modifier';
-import FlashObject from '../flash/object';
+import FlashObject from '../flash/object.ts';
+import type { EmberRunTimer } from '@ember/runloop/types';
 
 export interface FlashMessageSignature {
+  Element: HTMLDivElement;
   Args: {
     flash: FlashObject;
     messageStyle?: 'bootstrap' | 'foundation';
@@ -24,9 +26,9 @@ export interface FlashMessageSignature {
 export default class FlashMessage extends Component<FlashMessageSignature> {
   @tracked active = false;
 
-  @tracked pendingSet;
-  @tracked _mouseEnterHandler;
-  @tracked _mouseLeaveHandler;
+  @tracked pendingSet?: EmberRunTimer;
+  @tracked _mouseEnterHandler?: () => void;
+  @tracked _mouseLeaveHandler?: () => void;
 
   get messageStyle() {
     return this.args.messageStyle ?? 'bootstrap';
@@ -129,8 +131,12 @@ export default class FlashMessage extends Component<FlashMessageSignature> {
     element.addEventListener('mouseleave', this._mouseLeaveHandler);
 
     return () => {
-      element.removeEventListener('mouseenter', this._mouseEnterHandler);
-      element.removeEventListener('mouseleave', this._mouseLeaveHandler);
+      if (this._mouseEnterHandler) {
+        element.removeEventListener('mouseenter', this._mouseEnterHandler);
+      }
+      if (this._mouseLeaveHandler) {
+        element.removeEventListener('mouseleave', this._mouseLeaveHandler);
+      }
       cancel(this.pendingSet);
       this._destroyFlashMessage();
     };

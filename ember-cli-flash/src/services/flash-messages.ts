@@ -1,3 +1,4 @@
+import { tracked } from '@glimmer/tracking';
 /* eslint-disable ember/no-computed-properties-in-native-classes */
 import { equal, sort, mapBy } from '@ember/object/computed';
 import Service from '@ember/service';
@@ -5,14 +6,13 @@ import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
 // import { computed } from '@ember/object';
 import { classify } from '@ember/string';
-import FlashObject from '../flash/object';
-import objectWithout from '../utils/object-without';
-import { getOwner } from '@ember/application';
-import flashMessageOptions from '../utils/flash-message-options';
-import getWithDefault from '../utils/get-with-default';
+import FlashObject from '../flash/object.ts';
+import objectWithout from '../utils/object-without.ts';
+import { getOwner } from '@ember/owner';
+import flashMessageOptions from '../utils/flash-message-options.ts';
 import { registerDestructor } from '@ember/destroyable';
 
-function destructor(instance) {
+function destructor(instance: FlashMessagesService) {
   instance.clearMessages();
 }
 
@@ -37,30 +37,34 @@ export interface FlashFunction {
 }
 
 export default class FlashMessagesService extends Service {
-  @(equal('queue.length', 0).readOnly()) readonly isEmpty: boolean;
+  @equal('queue.length', 0).readOnly() declare readonly isEmpty: boolean;
 
-  @(mapBy('queue', '_guid').readOnly()) _guids;
+  @mapBy('queue', '_guid').readOnly() declare _guids: string[];
 
-  @(sort('queue', function (a, b) {
+  @sort('queue', function (a, b) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (a.priority < b.priority) {
       return 1;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
     } else if (a.priority > b.priority) {
       return -1;
     }
     return 0;
-  }).readOnly())
-  readonly arrangedQueue: FlashObject[];
+  }).readOnly()
+  declare readonly arrangedQueue: FlashObject[];
 
-  queue: FlashObject[] = [];
+  @tracked queue: FlashObject[] = [];
   defaultPreventDuplicates = false;
 
   // Default methods defined by flashMessageDefaults
-  success: FlashFunction;
-  warning: FlashFunction;
-  info: FlashFunction;
-  danger: FlashFunction;
-  alert: FlashFunction;
-  secondary: FlashFunction;
+  declare success: FlashFunction;
+  declare warning: FlashFunction;
+  declare info: FlashFunction;
+  declare danger: FlashFunction;
+  declare alert: FlashFunction;
+  declare secondary: FlashFunction;
 
   constructor() {
     super(...arguments);
@@ -95,11 +99,11 @@ export default class FlashMessagesService extends Service {
   }
 
   peekFirst() {
-    return this.queue.at(0);
+    return this.queue[0];
   }
 
   peekLast() {
-    return this.queue.at(-1);
+    return this.queue[this.queue.length - 1];
   }
 
   getFlashObject() {
@@ -112,18 +116,18 @@ export default class FlashMessagesService extends Service {
     return flashObject;
   }
 
-  _newFlashMessage(options: CustomMessageInfo) {
+  _newFlashMessage(options: CustomMessageInfo): FlashObject {
     assert(
       'The flash message cannot be empty when preventDuplicates is enabled.',
       this.defaultPreventDuplicates ? options.message : true,
     );
     assert(
       'The flash message cannot be empty when preventDuplicates is enabled.',
-      options.preventDuplicates ? options.message : true,
+      options['preventDuplicates'] ? options.message : true,
     );
 
     const flashService = this;
-    const allDefaults = getWithDefault(this, 'flashMessageDefaults', {});
+    const allDefaults = this.flashMessageDefaults ?? {};
     const defaults = objectWithout(allDefaults, ['types', 'preventDuplicates']);
 
     const flashMessageOptions = Object.assign({}, defaults, { flashService });
@@ -132,14 +136,16 @@ export default class FlashMessagesService extends Service {
       const value = options[key];
       const option = this._getOptionOrDefault(key, value);
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       flashMessageOptions[key] = option;
     }
 
     return FlashObject.create(flashMessageOptions);
   }
 
-  _getOptionOrDefault(key, value) {
-    const defaults = getWithDefault(this, 'flashMessageDefaults', {});
+  _getOptionOrDefault(key: string, value: unknown) {
+    const defaults = this.flashMessageDefaults ?? {};
     const defaultOption = defaults[key];
 
     if (typeOf(value) === 'undefined') {
@@ -151,27 +157,35 @@ export default class FlashMessagesService extends Service {
 
   // @computed
   get flashMessageDefaults() {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const config = getOwner(this).resolveRegistration('config:environment');
-    const overrides = getWithDefault(config, 'flashMessageDefaults', {});
+    const overrides = config.flashMessageDefaults ?? {};
     return flashMessageOptions(overrides);
   }
 
   _setDefaults() {
-    const defaults = getWithDefault(this, 'flashMessageDefaults', {});
+    const defaults = this.flashMessageDefaults ?? {};
 
     for (let key in defaults) {
       const classifiedKey = classify(key);
       const defaultKey = `default${classifiedKey}`;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       this[defaultKey] = defaults[key];
     }
 
-    this.registerTypes(getWithDefault(this, 'defaultTypes', []));
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.registerTypes(this.defaultTypes ?? []);
   }
 
-  _registerType(type) {
+  _registerType(type: string) {
     assert('The flash type cannot be undefined', type);
 
-    this[type] = (message, options: CustomMessageInfo) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this[type] = (message: string, options: CustomMessageInfo) => {
       const flashMessageOptions = Object.assign({}, options);
       flashMessageOptions.message = message;
       flashMessageOptions.type = type;
@@ -180,11 +194,11 @@ export default class FlashMessagesService extends Service {
     };
   }
 
-  _hasDuplicate(guid) {
+  _hasDuplicate(guid: string) {
     return this._guids.includes(guid);
   }
 
-  _enqueue(flashInstance) {
+  _enqueue(flashInstance: FlashObject) {
     const instancePreventDuplicates = flashInstance.preventDuplicates;
     const preventDuplicates =
       typeof instancePreventDuplicates === 'boolean'
@@ -207,6 +221,7 @@ export default class FlashMessagesService extends Service {
       }
     }
 
-    return this.queue.push(flashInstance);
+    this.queue = [...this.queue, flashInstance];
+    return this.queue;
   }
 }

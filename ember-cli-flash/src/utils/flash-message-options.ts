@@ -1,4 +1,6 @@
-export default function (configOverrides) {
+import type { CustomMessageInfo } from './../services/flash-messages.ts';
+
+export default function (configOverrides: CustomMessageInfo) {
   const addonDefaults = {
     timeout: 3000,
     extendedTimeout: 0,
