@@ -4,7 +4,6 @@ import { equal, sort, mapBy } from '@ember/object/computed';
 import Service from '@ember/service';
 import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
-// import { computed } from '@ember/object';
 import { classify } from '@ember/string';
 import FlashObject from '../flash/object.ts';
 import objectWithout from '../utils/object-without.ts';
@@ -155,7 +154,6 @@ export default class FlashMessagesService extends Service {
     return value;
   }
 
-  // @computed
   get flashMessageDefaults() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
