@@ -1,12 +1,12 @@
 import Evented from '@ember/object/evented';
 import EmberObject from '@ember/object';
 import FlashMessagesService from '../services/flash-messages.ts';
-import type { EmberRunTimer } from "@ember/runloop/types";
+import type { EmberRunTimer } from '@ember/runloop/types';
 declare const FlashObject_base: Readonly<typeof EmberObject> & (new (properties?: object | undefined) => Evented & EmberObject) & (new (...args: any[]) => Evented & EmberObject);
 export default class FlashObject extends FlashObject_base {
     flashService: FlashMessagesService;
-    exitTimer: null;
     exiting: boolean;
+    exitTimer: null;
     isExitable: boolean;
     initializedTime: number;
     exitTaskInstance?: EmberRunTimer;
@@ -22,13 +22,15 @@ export default class FlashObject extends FlashObject_base {
     preventDuplicates: boolean;
     onDestroy?: () => void;
     _guid: string;
-    constructor();
+    init(): void;
+    willDestroy(): void;
     destroyMessage(): void;
     exitMessage(): void;
     preventExit(): void;
     allowExit(): void;
     timerTask(): void;
     exitTimerTask(): void;
+    _setInitializedTime(): number;
     _getElapsedTime(): number;
     _cancelTimer(taskName?: 'timerTaskInstance' | 'exitTaskInstance'): void;
     _checkIfShouldExit(): void;

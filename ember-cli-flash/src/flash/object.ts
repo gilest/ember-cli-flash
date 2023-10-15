@@ -1,25 +1,19 @@
 import Evented from '@ember/object/evented';
 import EmberObject from '@ember/object';
 import { cancel, later } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 import { guidFor } from '../utils/computed.ts';
 import FlashMessagesService from '../services/flash-messages.ts';
-import { registerDestructor } from '@ember/destroyable';
-import type { EmberRunTimer } from "@ember/runloop/types";
-
-function destructor(instance: FlashObject) {
-  instance.onDestroy?.();
-
-  instance._cancelTimer();
-  instance._cancelTimer('exitTaskInstance');
-}
+import type { EmberRunTimer } from '@ember/runloop/types';
 
 // Note:
 // To avoid https://github.com/adopted-ember-addons/ember-cli-flash/issues/341 from happening, this class can't simply be called Object
 export default class FlashObject extends EmberObject.extend(Evented) {
   declare flashService: FlashMessagesService;
 
+  @tracked exiting = false;
+
   exitTimer = null;
-  exiting = false;
   isExitable = true;
   initializedTime: number = new Date().getTime();
 
@@ -30,24 +24,38 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   declare message: string;
   declare type: string;
   declare timeout?: number;
-  declare priority?: number
+  declare priority?: number;
   declare sticky: boolean;
   declare showProgress: boolean;
   declare destroyOnClick: boolean;
   declare preventDuplicates: boolean;
   declare onDestroy?: () => void;
 
-  @(guidFor('message').readOnly()) declare _guid: string;
+  @guidFor('message').readOnly() declare _guid: string;
 
-  constructor() {
-    super();
+  init() {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    super.init(...arguments);
 
     if (this.sticky) {
       return;
     }
     this.timerTask();
+    this._setInitializedTime();
+  }
 
-    registerDestructor(this, destructor);
+  willDestroy() {
+    if (this.onDestroy) {
+      this.onDestroy();
+    }
+
+    this._cancelTimer();
+    this._cancelTimer('exitTaskInstance');
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    super.willDestroy(...arguments);
   }
 
   destroyMessage() {
@@ -91,7 +99,7 @@ export default class FlashObject extends EmberObject.extend(Evented) {
     if (this.isDestroyed) {
       return;
     }
-    this.exiting, true;
+    this.exiting = true;
     if (this.extendedTimeout) {
       let exitTaskInstance = later(() => {
         this._teardown();
@@ -102,13 +110,22 @@ export default class FlashObject extends EmberObject.extend(Evented) {
     }
   }
 
+  _setInitializedTime() {
+    let currentTime = new Date().getTime();
+    this.initializedTime = currentTime;
+
+    return this.initializedTime;
+  }
+
   _getElapsedTime() {
     let currentTime = new Date().getTime();
 
     return currentTime - this.initializedTime;
   }
 
-  _cancelTimer(taskName: 'timerTaskInstance' | 'exitTaskInstance' = 'timerTaskInstance') {
+  _cancelTimer(
+    taskName: 'timerTaskInstance' | 'exitTaskInstance' = 'timerTaskInstance',
+  ) {
     if (this[taskName]) {
       cancel(this[taskName]);
     }
@@ -123,7 +140,9 @@ export default class FlashObject extends EmberObject.extend(Evented) {
 
   _teardown() {
     if (this.flashService?.queue) {
-      this.flashService.queue = this.flashService.queue.filter((flash) => flash !== this);
+      this.flashService.queue = this.flashService.queue.filter(
+        (flash) => flash !== this,
+      );
     }
     this.destroy();
     this.trigger('didDestroyMessage');
