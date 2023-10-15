@@ -22,14 +22,19 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   exiting = false;
   isExitable = true;
   initializedTime: number = new Date().getTime();
-  sticky = false;
 
   exitTaskInstance?: EmberRunTimer;
   timerTaskInstance? : EmberObject;
 
-  onDestroy?: () => void;
-  timeout?: number;
   extendedTimeout?: number;
+  message: string;
+  type: string;
+  timeout?: number;
+  priority?: number
+  sticky: boolean;
+  showProgress: boolean;
+  destroyOnClick: boolean;
+  onDestroy?: () => void;
 
   @(guidFor('message').readOnly()) _guid;
 

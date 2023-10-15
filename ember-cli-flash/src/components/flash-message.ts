@@ -7,16 +7,21 @@ import { next, cancel } from '@ember/runloop';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import FlashObject from '../flash/object';
 
-/**
- * ARGS
- *
- * flash: FlashObject
- * messageStyle?: 'bootstrap' | 'foundation'
- * messageStylePrefix?: string
- */
+export interface FlashMessageSignature {
+  Args: {
+    flash: FlashObject;
+    messageStyle?: 'bootstrap' | 'foundation';
+    messageStylePrefix?: string;
+    exitingClass?: string;
+  };
+  Blocks: {
+    default: [Component<FlashMessageSignature>, FlashObject, () => void];
+  };
+}
 
-export default class FlashMessage extends Component {
+export default class FlashMessage extends Component<FlashMessageSignature> {
   @tracked active = false;
 
   @tracked pendingSet;
