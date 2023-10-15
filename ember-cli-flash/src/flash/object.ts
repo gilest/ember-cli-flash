@@ -2,9 +2,9 @@ import Evented from '@ember/object/evented';
 import EmberObject from '@ember/object';
 import { cancel, later } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
-import { guidFor } from '../utils/computed.ts';
 import FlashMessagesService from '../services/flash-messages.ts';
 import type { EmberRunTimer } from '@ember/runloop/types';
+import { guidFor } from '@ember/object/internals';
 
 // Note:
 // To avoid https://github.com/adopted-ember-addons/ember-cli-flash/issues/341 from happening, this class can't simply be called Object
@@ -24,14 +24,18 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   declare message: string;
   declare type: string;
   declare timeout?: number;
-  declare priority?: number;
+  declare priority: number;
   declare sticky: boolean;
   declare showProgress: boolean;
   declare destroyOnClick: boolean;
   declare preventDuplicates: boolean;
   declare onDestroy?: () => void;
 
-  @guidFor('message').readOnly() declare _guid: string;
+  get _guid() {
+    if (!this.message) return;
+
+    return guidFor(this.message);
+  }
 
   init() {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

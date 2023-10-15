@@ -1,6 +1,4 @@
 import { tracked } from '@glimmer/tracking';
-/* eslint-disable ember/no-computed-properties-in-native-classes */
-import { equal, sort, mapBy } from '@ember/object/computed';
 import Service from '@ember/service';
 import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
@@ -36,23 +34,24 @@ export interface FlashFunction {
 }
 
 export default class FlashMessagesService extends Service {
-  @equal('queue.length', 0).readOnly() declare readonly isEmpty: boolean;
+  get isEmpty() {
+    return this.queue.length === 0;
+  }
 
-  @mapBy('queue', '_guid').readOnly() declare _guids: string[];
+  get _guids() {
+    return this.queue.map((flash) => flash._guid);
+  }
 
-  @sort('queue', function (a, b) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    if (a.priority < b.priority) {
-      return 1;
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-    } else if (a.priority > b.priority) {
-      return -1;
-    }
-    return 0;
-  }).readOnly()
-  declare readonly arrangedQueue: FlashObject[];
+  get arrangedQueue() {
+    return this.queue.sort(function (a, b) {
+      if (a.priority < b.priority) {
+        return 1;
+      } else if (a.priority > b.priority) {
+        return -1;
+      }
+      return 0;
+    });
+  }
 
   @tracked queue: FlashObject[] = [];
   defaultPreventDuplicates = false;
@@ -207,7 +206,7 @@ export default class FlashMessagesService extends Service {
     if (preventDuplicates) {
       const guid = flashInstance._guid;
 
-      if (this._hasDuplicate(guid)) {
+      if (guid && this._hasDuplicate(guid)) {
         warn(
           'Attempting to add a duplicate message to the Flash Messages Service',
           false,

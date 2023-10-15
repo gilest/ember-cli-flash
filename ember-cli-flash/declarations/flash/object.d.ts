@@ -21,7 +21,7 @@ export default class FlashObject extends FlashObject_base {
     destroyOnClick: boolean;
     preventDuplicates: boolean;
     onDestroy?: () => void;
-    _guid: string;
+    get _guid(): string | undefined;
     init(): void;
     willDestroy(): void;
     destroyMessage(): void;

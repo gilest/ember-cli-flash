@@ -23,7 +23,6 @@ module.exports = {
   rules: {
     'ember/no-classic-components': 'warn',
     'ember/no-classic-classes': 'warn',
-    'ember/no-computed-properties-in-native-classes': 'warn',
     'ember/classic-decorator-hooks': 'warn',
   },
   overrides: [

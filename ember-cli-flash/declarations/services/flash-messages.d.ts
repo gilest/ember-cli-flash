@@ -18,9 +18,9 @@ export interface FlashFunction {
     (message: string, options?: Partial<MessageOptions>): FlashMessagesService;
 }
 export default class FlashMessagesService extends Service {
-    readonly isEmpty: boolean;
-    _guids: string[];
-    readonly arrangedQueue: FlashObject[];
+    get isEmpty(): boolean;
+    get _guids(): (string | undefined)[];
+    get arrangedQueue(): FlashObject[];
     queue: FlashObject[];
     defaultPreventDuplicates: boolean;
     success: FlashFunction;
