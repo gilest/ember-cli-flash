@@ -20,10 +20,10 @@ export default class FlashObject extends EmberObject.extend(Evented) {
   exitTaskInstance?: EmberRunTimer;
   timerTaskInstance?: EmberRunTimer;
 
-  declare extendedTimeout?: number;
+  declare extendedTimeout: number;
   declare message: string;
   declare type: string;
-  declare timeout?: number;
+  declare timeout: 3000;
   declare priority: number;
   declare sticky: boolean;
   declare showProgress: boolean;

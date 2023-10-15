@@ -53,9 +53,19 @@ export default class FlashMessagesService extends Service {
   }
 
   @tracked queue: FlashObject[] = [];
-  defaultPreventDuplicates = false;
 
-  // Default methods defined by flashMessageDefaults
+  // Set by _setDefaults
+  declare defaultTimeout: number;
+  declare defaultExtendedTimeout: number;
+  declare defaultPriority: number;
+  declare defaultSticky: boolean;
+  declare defaultShowProgress: boolean;
+  declare defaultType: string;
+  declare defaultTypes: [];
+  declare defaultPreventDuplicates: boolean;
+
+  // Default methods set by _registerType
+  // Not sure if it's possible to make these dynamic
   declare success: FlashFunction;
   declare warning: FlashFunction;
   declare info: FlashFunction;
@@ -125,7 +135,11 @@ export default class FlashMessagesService extends Service {
 
     const flashService = this;
     const allDefaults = this.flashMessageDefaults ?? {};
-    const defaults = { ...allDefaults, types: undefined, preventDuplicates: undefined };
+    const defaults = {
+      ...allDefaults,
+      types: undefined,
+      preventDuplicates: undefined,
+    };
 
     const flashMessageOptions = Object.assign({}, defaults, { flashService });
 
@@ -138,6 +152,8 @@ export default class FlashMessagesService extends Service {
       flashMessageOptions[key] = option;
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     return FlashObject.create(flashMessageOptions);
   }
 
