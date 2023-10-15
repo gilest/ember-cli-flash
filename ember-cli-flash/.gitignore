@@ -6,9 +6,7 @@
 
 # compiled output
 /dist
-
-# Declarations are defined manually at present
-# /declarations
+/declarations
 
 # npm/pnpm/yarn pack output
 *.tgz

@@ -48,15 +48,99 @@ importers:
       '@babel/plugin-transform-class-static-block':
         specifier: ^7.20.0
         version: registry.npmjs.org/@babel/plugin-transform-class-static-block@7.22.11(@babel/core@7.23.0)
+      '@babel/plugin-transform-typescript':
+        specifier: ^7.22.15
+        version: registry.npmjs.org/@babel/plugin-transform-typescript@7.22.15(@babel/core@7.23.0)
       '@babel/runtime':
         specifier: ^7.17.0
         version: registry.npmjs.org/@babel/runtime@7.23.1
       '@embroider/addon-dev':
         specifier: ^4.1.0
-        version: registry.npmjs.org/@embroider/addon-dev@4.1.1(rollup@3.29.4)
+        version: registry.npmjs.org/@embroider/addon-dev@4.1.1(@glint/template@1.2.1)(rollup@3.29.4)
+      '@glint/core':
+        specifier: ^1.2.0
+        version: registry.npmjs.org/@glint/core@1.2.1(typescript@5.2.2)
+      '@glint/environment-ember-loose':
+        specifier: ^1.2.0
+        version: registry.npmjs.org/@glint/environment-ember-loose@1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(@types/ember__array@4.0.6)(@types/ember__component@4.0.18)(@types/ember__controller@4.0.8)(@types/ember__object@4.0.8)(@types/ember__routing@4.0.16)(ember-modifier@4.1.0)
+      '@glint/environment-ember-template-imports':
+        specifier: ^1.2.0
+        version: registry.npmjs.org/@glint/environment-ember-template-imports@1.2.1(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(@types/ember__component@4.0.18)(@types/ember__helper@4.0.3)(@types/ember__modifier@4.0.6)(@types/ember__routing@4.0.16)(ember-template-imports@3.4.2)
+      '@glint/template':
+        specifier: ^1.2.0
+        version: registry.npmjs.org/@glint/template@1.2.1
       '@rollup/plugin-babel':
         specifier: ^6.0.3
         version: registry.npmjs.org/@rollup/plugin-babel@6.0.4(@babel/core@7.23.0)(rollup@3.29.4)
+      '@tsconfig/ember':
+        specifier: ^2.0.0
+        version: registry.npmjs.org/@tsconfig/ember@2.0.0
+      '@types/ember':
+        specifier: ^4.0.4
+        version: registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__application':
+        specifier: ^4.0.6
+        version: registry.npmjs.org/@types/ember__application@4.0.8(@babel/core@7.23.0)
+      '@types/ember__array':
+        specifier: ^4.0.4
+        version: registry.npmjs.org/@types/ember__array@4.0.6(@babel/core@7.23.0)
+      '@types/ember__component':
+        specifier: ^4.0.14
+        version: registry.npmjs.org/@types/ember__component@4.0.18(@babel/core@7.23.0)
+      '@types/ember__controller':
+        specifier: ^4.0.5
+        version: registry.npmjs.org/@types/ember__controller@4.0.8(@babel/core@7.23.0)
+      '@types/ember__debug':
+        specifier: ^4.0.4
+        version: registry.npmjs.org/@types/ember__debug@4.0.5(@babel/core@7.23.0)
+      '@types/ember__engine':
+        specifier: ^4.0.5
+        version: registry.npmjs.org/@types/ember__engine@4.0.7(@babel/core@7.23.0)
+      '@types/ember__error':
+        specifier: ^4.0.3
+        version: registry.npmjs.org/@types/ember__error@4.0.3
+      '@types/ember__helper':
+        specifier: ^4.0.3
+        version: registry.npmjs.org/@types/ember__helper@4.0.3(@babel/core@7.23.0)
+      '@types/ember__modifier':
+        specifier: ^4.0.6
+        version: registry.npmjs.org/@types/ember__modifier@4.0.6(@babel/core@7.23.0)
+      '@types/ember__object':
+        specifier: ^4.0.6
+        version: registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__owner':
+        specifier: ^4.0.4
+        version: registry.npmjs.org/@types/ember__owner@4.0.6
+      '@types/ember__polyfills':
+        specifier: ^4.0.2
+        version: registry.npmjs.org/@types/ember__polyfills@4.0.3
+      '@types/ember__routing':
+        specifier: ^4.0.13
+        version: registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0)
+      '@types/ember__runloop':
+        specifier: ^4.0.3
+        version: registry.npmjs.org/@types/ember__runloop@4.0.6(@babel/core@7.23.0)
+      '@types/ember__service':
+        specifier: ^4.0.3
+        version: registry.npmjs.org/@types/ember__service@4.0.5(@babel/core@7.23.0)
+      '@types/ember__string':
+        specifier: ^3.16.3
+        version: registry.npmjs.org/@types/ember__string@3.16.3
+      '@types/ember__template':
+        specifier: ^4.0.2
+        version: registry.npmjs.org/@types/ember__template@4.0.3
+      '@types/ember__test':
+        specifier: ^4.0.2
+        version: registry.npmjs.org/@types/ember__test@4.0.3(@babel/core@7.23.0)
+      '@types/ember__utils':
+        specifier: ^4.0.3
+        version: registry.npmjs.org/@types/ember__utils@4.0.4(@babel/core@7.23.0)
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.7.2
+        version: registry.npmjs.org/@typescript-eslint/eslint-plugin@6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/parser':
+        specifier: ^6.7.2
+        version: registry.npmjs.org/@typescript-eslint/parser@6.7.5(eslint@8.51.0)(typescript@5.2.2)
       babel-plugin-ember-template-compilation:
         specifier: ^2.2.0
         version: registry.npmjs.org/babel-plugin-ember-template-compilation@2.2.0
@@ -125,7 +209,7 @@ importers:
         version: registry.npmjs.org/@embroider/compat@3.2.3(@embroider/core@3.3.0)
       '@embroider/core':
         specifier: ^3.3.0
-        version: registry.npmjs.org/@embroider/core@3.3.0
+        version: registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
       '@embroider/test-setup':
         specifier: ^2.1.1
         version: registry.npmjs.org/@embroider/test-setup@2.1.1
@@ -1929,7 +2013,7 @@ packages:
       ember-source: '>=3.8.0'
     dependencies:
       '@ember/test-waiters': registry.npmjs.org/@ember/test-waiters@3.0.2
-      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2
+      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1)
       '@embroider/util': registry.npmjs.org/@embroider/util@1.12.0(ember-source@4.12.3)
       broccoli-debug: registry.npmjs.org/broccoli-debug@0.6.5
       broccoli-funnel: registry.npmjs.org/broccoli-funnel@3.0.8
@@ -1958,7 +2042,7 @@ packages:
       - supports-color
     dev: true
 
-  registry.npmjs.org/@embroider/addon-dev@4.1.1(rollup@3.29.4):
+  registry.npmjs.org/@embroider/addon-dev@4.1.1(@glint/template@1.2.1)(rollup@3.29.4):
     resolution: {integrity: sha512-6AIU+GobgsozQJZtG6ys/8TumtnJkrW8LKggjajCwX8QP++eAN9vUL00AZdgh5wZAyLAiv+jNi5knGrPdMFPMA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@embroider/addon-dev/-/addon-dev-4.1.1.tgz}
     id: registry.npmjs.org/@embroider/addon-dev/4.1.1
     name: '@embroider/addon-dev'
@@ -1966,7 +2050,7 @@ packages:
     engines: {node: 12.* || 14.* || >= 16}
     hasBin: true
     dependencies:
-      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0
+      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
       '@rollup/pluginutils': registry.npmjs.org/@rollup/pluginutils@4.2.1
       content-tag: registry.npmjs.org/content-tag@1.1.2
       fs-extra: registry.npmjs.org/fs-extra@10.1.0
@@ -1995,7 +2079,6 @@ packages:
       semver: registry.npmjs.org/semver@7.5.4
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   registry.npmjs.org/@embroider/babel-loader-9@3.1.0(@embroider/core@3.3.0)(supports-color@8.1.1)(webpack@5.88.2):
     resolution: {integrity: sha512-TEOaOAsci15Zc3qh8kFAt/XpAsKjw/DzS/1+dv7yNGOeEgqImux+RoZ7DkZkVZNeuA0eAonpY79B+B0J17Us5g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@embroider/babel-loader-9/-/babel-loader-9-3.1.0.tgz}
@@ -2007,7 +2090,7 @@ packages:
       '@embroider/core': ^3.3.0
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core@7.23.0(supports-color@8.1.1)
-      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0
+      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
       babel-loader: registry.npmjs.org/babel-loader@9.1.3(@babel/core@7.23.0)(webpack@5.88.2)
     transitivePeerDependencies:
       - supports-color
@@ -2031,8 +2114,8 @@ packages:
       '@babel/preset-env': registry.npmjs.org/@babel/preset-env@7.22.20(@babel/core@7.23.0)
       '@babel/runtime': registry.npmjs.org/@babel/runtime@7.23.1
       '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.0(supports-color@8.1.1)
-      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0
-      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2
+      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
+      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1)
       '@types/babel__code-frame': registry.npmjs.org/@types/babel__code-frame@7.0.4
       '@types/yargs': registry.npmjs.org/@types/yargs@17.0.28
       assert-never: registry.npmjs.org/assert-never@1.2.1
@@ -2074,8 +2157,9 @@ packages:
       - utf-8-validate
     dev: true
 
-  registry.npmjs.org/@embroider/core@3.3.0:
+  registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1):
     resolution: {integrity: sha512-QkOLFB3DUuDg6DU7qNAKFNJUyzgmjWNiRLcyrhThYgWeN5h8ilatG3sl5atBN6Jh3wCIJmhjXagafkA82a0abQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@embroider/core/-/core-3.3.0.tgz}
+    id: registry.npmjs.org/@embroider/core/3.3.0
     name: '@embroider/core'
     version: 3.3.0
     engines: {node: 12.* || 14.* || >= 16}
@@ -2083,7 +2167,7 @@ packages:
       '@babel/core': registry.npmjs.org/@babel/core@7.23.0(supports-color@8.1.1)
       '@babel/parser': registry.npmjs.org/@babel/parser@7.23.0
       '@babel/traverse': registry.npmjs.org/@babel/traverse@7.23.0(supports-color@8.1.1)
-      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2
+      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1)
       '@embroider/shared-internals': registry.npmjs.org/@embroider/shared-internals@2.5.0(supports-color@8.1.1)
       assert-never: registry.npmjs.org/assert-never@1.2.1
       babel-plugin-ember-template-compilation: registry.npmjs.org/babel-plugin-ember-template-compilation@2.2.0
@@ -2122,12 +2206,13 @@ packages:
       '@embroider/core': ^3.2.0
       webpack: ^5
     dependencies:
-      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0
+      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
       webpack: registry.npmjs.org/webpack@5.88.2
     dev: true
 
-  registry.npmjs.org/@embroider/macros@1.13.2:
+  registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1):
     resolution: {integrity: sha512-AUgJ71xG8kjuTx8XB1AQNBiebJuXRfhcHr318dCwnQz9VRXdYSnEEqf38XRvGYIoCvIyn/3c72LrSwzaJqknOA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@embroider/macros/-/macros-1.13.2.tgz}
+    id: registry.npmjs.org/@embroider/macros/1.13.2
     name: '@embroider/macros'
     version: 1.13.2
     engines: {node: 12.* || 14.* || >= 16}
@@ -2138,6 +2223,7 @@ packages:
         optional: true
     dependencies:
       '@embroider/shared-internals': registry.npmjs.org/@embroider/shared-internals@2.5.0(supports-color@8.1.1)
+      '@glint/template': registry.npmjs.org/@glint/template@1.2.1
       assert-never: registry.npmjs.org/assert-never@1.2.1
       babel-import-util: registry.npmjs.org/babel-import-util@2.0.1
       ember-cli-babel: registry.npmjs.org/ember-cli-babel@7.26.11
@@ -2194,7 +2280,7 @@ packages:
       '@glint/template':
         optional: true
     dependencies:
-      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2
+      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1)
       broccoli-funnel: registry.npmjs.org/broccoli-funnel@3.0.8
       ember-cli-babel: registry.npmjs.org/ember-cli-babel@7.26.11
       ember-source: registry.npmjs.org/ember-source@4.12.3(@babel/core@7.23.0)(@glimmer/component@1.1.2)(webpack@5.88.2)
@@ -2214,7 +2300,7 @@ packages:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core@7.23.0(supports-color@8.1.1)
       '@embroider/babel-loader-9': registry.npmjs.org/@embroider/babel-loader-9@3.1.0(@embroider/core@3.3.0)(supports-color@8.1.1)(webpack@5.88.2)
-      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0
+      '@embroider/core': registry.npmjs.org/@embroider/core@3.3.0(@glint/template@1.2.1)
       '@embroider/hbs-loader': registry.npmjs.org/@embroider/hbs-loader@3.0.2(@embroider/core@3.3.0)(webpack@5.88.2)
       '@embroider/shared-internals': registry.npmjs.org/@embroider/shared-internals@2.5.0(supports-color@8.1.1)
       '@types/supports-color': registry.npmjs.org/@types/supports-color@8.1.1
@@ -2414,6 +2500,108 @@ packages:
       babel-plugin-debug-macros: registry.npmjs.org/babel-plugin-debug-macros@0.3.4(@babel/core@7.23.0)
     transitivePeerDependencies:
       - '@babel/core'
+    dev: true
+
+  registry.npmjs.org/@glint/core@1.2.1(typescript@5.2.2):
+    resolution: {integrity: sha512-25Zn65aLSN1M7s0D950sTNElZYRqa6HFA0xcT03iI/vQd1F6c3luMAXbFrsTSHlktZx2dqJ38c2dUnZJQBQgMw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@glint/core/-/core-1.2.1.tgz}
+    id: registry.npmjs.org/@glint/core/1.2.1
+    name: '@glint/core'
+    version: 1.2.1
+    hasBin: true
+    peerDependencies:
+      typescript: '>=4.8.0'
+    dependencies:
+      '@glimmer/syntax': registry.npmjs.org/@glimmer/syntax@0.84.3
+      escape-string-regexp: registry.npmjs.org/escape-string-regexp@4.0.0
+      semver: registry.npmjs.org/semver@7.5.4
+      silent-error: registry.npmjs.org/silent-error@1.1.1
+      typescript: registry.npmjs.org/typescript@5.2.2
+      uuid: registry.npmjs.org/uuid@8.3.2
+      vscode-languageserver: registry.npmjs.org/vscode-languageserver@8.1.0
+      vscode-languageserver-textdocument: registry.npmjs.org/vscode-languageserver-textdocument@1.0.11
+      vscode-uri: registry.npmjs.org/vscode-uri@3.0.8
+      yargs: registry.npmjs.org/yargs@17.7.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@glint/environment-ember-loose@1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(@types/ember__array@4.0.6)(@types/ember__component@4.0.18)(@types/ember__controller@4.0.8)(@types/ember__object@4.0.8)(@types/ember__routing@4.0.16)(ember-modifier@4.1.0):
+    resolution: {integrity: sha512-ZA0Ht7vwd1FosVLtMFrB2Er62P1v6yX/UuS6z9UVR6DMPfrL5qx6vef+EGJPLBrBKZMlm7zMB6Fyca201y4hDA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@glint/environment-ember-loose/-/environment-ember-loose-1.2.1.tgz}
+    id: registry.npmjs.org/@glint/environment-ember-loose/1.2.1
+    name: '@glint/environment-ember-loose'
+    version: 1.2.1
+    peerDependencies:
+      '@glimmer/component': ^1.1.2
+      '@glint/template': ^1.2.1
+      '@types/ember__array': ^4.0.2
+      '@types/ember__component': ^4.0.10
+      '@types/ember__controller': ^4.0.2
+      '@types/ember__object': ^4.0.4
+      '@types/ember__routing': ^4.0.11
+      ember-cli-htmlbars: ^6.0.1
+      ember-modifier: ^3.2.7 || ^4.0.0
+    peerDependenciesMeta:
+      '@types/ember__array':
+        optional: true
+      '@types/ember__component':
+        optional: true
+      '@types/ember__controller':
+        optional: true
+      '@types/ember__object':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+      ember-cli-htmlbars:
+        optional: true
+      ember-modifier:
+        optional: true
+    dependencies:
+      '@glimmer/component': registry.npmjs.org/@glimmer/component@1.1.2(@babel/core@7.23.0)
+      '@glint/template': registry.npmjs.org/@glint/template@1.2.1
+      '@types/ember__array': registry.npmjs.org/@types/ember__array@4.0.6(@babel/core@7.23.0)
+      '@types/ember__component': registry.npmjs.org/@types/ember__component@4.0.18(@babel/core@7.23.0)
+      '@types/ember__controller': registry.npmjs.org/@types/ember__controller@4.0.8(@babel/core@7.23.0)
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__routing': registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0)
+      ember-modifier: registry.npmjs.org/ember-modifier@4.1.0
+    dev: true
+
+  registry.npmjs.org/@glint/environment-ember-template-imports@1.2.1(@glint/environment-ember-loose@1.2.1)(@glint/template@1.2.1)(@types/ember__component@4.0.18)(@types/ember__helper@4.0.3)(@types/ember__modifier@4.0.6)(@types/ember__routing@4.0.16)(ember-template-imports@3.4.2):
+    resolution: {integrity: sha512-yTuF8oQyvVKmU3fCuYtg8Gf02VghQYI36x5/eob6yaMx2M+p3MFO+E6X7ANz/1bYRXphEPTWQMgdDjM4C6Ql4A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@glint/environment-ember-template-imports/-/environment-ember-template-imports-1.2.1.tgz}
+    id: registry.npmjs.org/@glint/environment-ember-template-imports/1.2.1
+    name: '@glint/environment-ember-template-imports'
+    version: 1.2.1
+    peerDependencies:
+      '@glint/environment-ember-loose': ^1.2.1
+      '@glint/template': ^1.2.1
+      '@types/ember__component': ^4.0.10
+      '@types/ember__helper': ^4.0.1
+      '@types/ember__modifier': ^4.0.3
+      '@types/ember__routing': ^4.0.12
+      ember-template-imports: ^3.0.0
+    peerDependenciesMeta:
+      '@types/ember__component':
+        optional: true
+      '@types/ember__helper':
+        optional: true
+      '@types/ember__modifier':
+        optional: true
+      '@types/ember__routing':
+        optional: true
+    dependencies:
+      '@glint/environment-ember-loose': registry.npmjs.org/@glint/environment-ember-loose@1.2.1(@glimmer/component@1.1.2)(@glint/template@1.2.1)(@types/ember__array@4.0.6)(@types/ember__component@4.0.18)(@types/ember__controller@4.0.8)(@types/ember__object@4.0.8)(@types/ember__routing@4.0.16)(ember-modifier@4.1.0)
+      '@glint/template': registry.npmjs.org/@glint/template@1.2.1
+      '@types/ember__component': registry.npmjs.org/@types/ember__component@4.0.18(@babel/core@7.23.0)
+      '@types/ember__helper': registry.npmjs.org/@types/ember__helper@4.0.3(@babel/core@7.23.0)
+      '@types/ember__modifier': registry.npmjs.org/@types/ember__modifier@4.0.6(@babel/core@7.23.0)
+      '@types/ember__routing': registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0)
+      ember-template-imports: registry.npmjs.org/ember-template-imports@3.4.2
+    dev: true
+
+  registry.npmjs.org/@glint/template@1.2.1:
+    resolution: {integrity: sha512-rlYy/93fAhYjXmTchWcwCpPFMfrqBYEskzbDYawS2oz4DVwtf4fOITLKB0QddQMI7WUCjgXAiIGZqcNa/R4YeQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@glint/template/-/template-1.2.1.tgz}
+    name: '@glint/template'
+    version: 1.2.1
     dev: true
 
   registry.npmjs.org/@handlebars/parser@2.0.0:
@@ -2781,6 +2969,12 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  registry.npmjs.org/@tsconfig/ember@2.0.0:
+    resolution: {integrity: sha512-RzbDYYcjxVdG8Ki0xe99HN3+nHTZe6EBgw6N7B3yup7QogVFQQxA9nY7X80j1XzF15xqetwWiYfAjv5lkkp0/A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@tsconfig/ember/-/ember-2.0.0.tgz}
+    name: '@tsconfig/ember'
+    version: 2.0.0
+    dev: true
+
   registry.npmjs.org/@types/babel__code-frame@7.0.4:
     resolution: {integrity: sha512-WBxINLlATjvmpCgBbb9tOPrKtcPfu4A/Yz2iRzmdaodfvjAS/Z0WZJClV9/EXvoC9viI3lgUs7B9Uo7G/RmMGg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/babel__code-frame/-/babel__code-frame-7.0.4.tgz}
     name: '@types/babel__code-frame'
@@ -2856,6 +3050,34 @@ packages:
       '@types/rsvp': registry.npmjs.org/@types/rsvp@4.0.5
     dev: true
 
+  registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0):
+    resolution: {integrity: sha512-5CAqPP20l1CWXT1E0NoiBnQUKqwuPSBq0JJVadEIX65CUzVz3zUIFvNoSl1erePwOeCIiQn9pHa568XwZnD6Mw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember/-/ember-4.0.6.tgz}
+    id: registry.npmjs.org/@types/ember/4.0.6
+    name: '@types/ember'
+    version: 4.0.6
+    dependencies:
+      '@types/ember__application': registry.npmjs.org/@types/ember__application@4.0.8(@babel/core@7.23.0)
+      '@types/ember__array': registry.npmjs.org/@types/ember__array@4.0.6(@babel/core@7.23.0)
+      '@types/ember__component': registry.npmjs.org/@types/ember__component@4.0.18(@babel/core@7.23.0)
+      '@types/ember__controller': registry.npmjs.org/@types/ember__controller@4.0.8(@babel/core@7.23.0)
+      '@types/ember__debug': registry.npmjs.org/@types/ember__debug@4.0.5(@babel/core@7.23.0)
+      '@types/ember__engine': registry.npmjs.org/@types/ember__engine@4.0.7(@babel/core@7.23.0)
+      '@types/ember__error': registry.npmjs.org/@types/ember__error@4.0.3
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__polyfills': registry.npmjs.org/@types/ember__polyfills@4.0.3
+      '@types/ember__routing': registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0)
+      '@types/ember__runloop': registry.npmjs.org/@types/ember__runloop@4.0.6(@babel/core@7.23.0)
+      '@types/ember__service': registry.npmjs.org/@types/ember__service@4.0.5(@babel/core@7.23.0)
+      '@types/ember__string': registry.npmjs.org/@types/ember__string@3.16.3
+      '@types/ember__template': registry.npmjs.org/@types/ember__template@4.0.3
+      '@types/ember__test': registry.npmjs.org/@types/ember__test@4.0.3(@babel/core@7.23.0)
+      '@types/ember__utils': registry.npmjs.org/@types/ember__utils@4.0.4(@babel/core@7.23.0)
+      '@types/rsvp': registry.npmjs.org/@types/rsvp@4.0.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__application@3.16.7:
     resolution: {integrity: sha512-WoR1OAJzxzuHMkGAg3IDgM44dGx/9sTBAHtggJGZ3UdF/bWxTjwD1CIvhhA/PoPZ3/r132RPPdeO8OA32kTvVw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__application/-/ember__application-3.16.7.tgz}
     name: '@types/ember__application'
@@ -2866,12 +3088,42 @@ packages:
       '@types/ember__routing': registry.npmjs.org/@types/ember__routing@3.16.20
     dev: true
 
+  registry.npmjs.org/@types/ember__application@4.0.8(@babel/core@7.23.0):
+    resolution: {integrity: sha512-ruOQCPO4NrGsraja52wbu0lX/oXQxPvUc6pNr7v/5Lix6UdV3jkP9RW3HwWljMEj48gcCvIwuTt0HfIha4T0GQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__application/-/ember__application-4.0.8.tgz}
+    id: registry.npmjs.org/@types/ember__application/4.0.8
+    name: '@types/ember__application'
+    version: 4.0.8
+    dependencies:
+      '@glimmer/component': registry.npmjs.org/@glimmer/component@1.1.2(@babel/core@7.23.0)
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__engine': registry.npmjs.org/@types/ember__engine@4.0.7(@babel/core@7.23.0)
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__owner': registry.npmjs.org/@types/ember__owner@4.0.6
+      '@types/ember__routing': registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__array@3.16.7:
     resolution: {integrity: sha512-6T5Waj3igtUKgcSVpZ3UNSAKSkynZ5d/BJ1UsOdY5PJmzYw9qexAfKrDIz/iYcseBdhqHXzxGDdEtqATESpnyw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__array/-/ember__array-3.16.7.tgz}
     name: '@types/ember__array'
     version: 3.16.7
     dependencies:
       '@types/ember__object': registry.npmjs.org/@types/ember__object@3.12.10
+    dev: true
+
+  registry.npmjs.org/@types/ember__array@4.0.6(@babel/core@7.23.0):
+    resolution: {integrity: sha512-17tuhICdjh3UoGBKO7We3J58iXuhFuDIRPVNY9GpvayOMGiVkBOMLpaLpu3FpRppJ3qu0UkpwA06uHmcGoBT5g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__array/-/ember__array-4.0.6.tgz}
+    id: registry.npmjs.org/@types/ember__array/4.0.6
+    name: '@types/ember__array'
+    version: 4.0.6
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   registry.npmjs.org/@types/ember__component@3.16.10:
@@ -2883,12 +3135,37 @@ packages:
       '@types/jquery': registry.npmjs.org/@types/jquery@3.5.21
     dev: true
 
+  registry.npmjs.org/@types/ember__component@4.0.18(@babel/core@7.23.0):
+    resolution: {integrity: sha512-TUTSNL4HLYazBFxc2g/C9GUn4/0akKFfB8IRqjGHyyByKiaNbnf992Dxu6Zfl62QtuhLEHzpfppLGuQLwY448w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__component/-/ember__component-4.0.18.tgz}
+    id: registry.npmjs.org/@types/ember__component/4.0.18
+    name: '@types/ember__component'
+    version: 4.0.18
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__controller@3.16.10:
     resolution: {integrity: sha512-qhsrVrmfPSYAWX3pokoX+MY3/WwCQbC6zkDIMIlirKoFOvo92BcqoyhDjKXqAa2ixMWWq6/QnIitsR6fGlJpWg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__controller/-/ember__controller-3.16.10.tgz}
     name: '@types/ember__controller'
     version: 3.16.10
     dependencies:
       '@types/ember__object': registry.npmjs.org/@types/ember__object@3.12.10
+    dev: true
+
+  registry.npmjs.org/@types/ember__controller@4.0.8(@babel/core@7.23.0):
+    resolution: {integrity: sha512-5CdPyjpYLvflbPvInIS4ukU6fdusJavVzPnPhTvojG1Nny+eLli5xqGaRWE3itt7ElcPsmi55XfrUQI4lgAFJg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__controller/-/ember__controller-4.0.8.tgz}
+    id: registry.npmjs.org/@types/ember__controller/4.0.8
+    name: '@types/ember__controller'
+    version: 4.0.8
+    dependencies:
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   registry.npmjs.org/@types/ember__debug@3.16.9:
@@ -2900,6 +3177,19 @@ packages:
       '@types/ember__object': registry.npmjs.org/@types/ember__object@3.12.10
     dev: true
 
+  registry.npmjs.org/@types/ember__debug@4.0.5(@babel/core@7.23.0):
+    resolution: {integrity: sha512-KBEEHws6CClZR7tpIplURyuKSkQhW6ZHsPWvRxTRr5104V0X+jUvv2ef/JZ35YUp01oS4DXqvn6DwCkhZOy0KA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__debug/-/ember__debug-4.0.5.tgz}
+    id: registry.npmjs.org/@types/ember__debug/4.0.5
+    name: '@types/ember__debug'
+    version: 4.0.5
+    dependencies:
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__owner': registry.npmjs.org/@types/ember__owner@4.0.6
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__engine@3.16.6:
     resolution: {integrity: sha512-IfStcDWd1fbF6CMwqVvP3IG+6wKd93q2VNUIBVsk951ky0FJGTZO1PFmCM6YLcz4Iuohp6nPy/vw76q+bSwWzQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__engine/-/ember__engine-3.16.6.tgz}
     name: '@types/ember__engine'
@@ -2908,10 +3198,54 @@ packages:
       '@types/ember__object': registry.npmjs.org/@types/ember__object@3.12.10
     dev: true
 
+  registry.npmjs.org/@types/ember__engine@4.0.7(@babel/core@7.23.0):
+    resolution: {integrity: sha512-AxIrs9bsmgup7da6GHNFI6iU/YiUWhme3RRFID7eEU21tGtT2JjlHz1i2TxSk9SKYkUvpoTYR+nnxlpOD3VheA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__engine/-/ember__engine-4.0.7.tgz}
+    id: registry.npmjs.org/@types/ember__engine/4.0.7
+    name: '@types/ember__engine'
+    version: 4.0.7
+    dependencies:
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__owner': registry.npmjs.org/@types/ember__owner@4.0.6
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__error@3.16.3:
     resolution: {integrity: sha512-fi8Lr9vNtt+gxruaiDl+mcJ0GT7W3ZYtbR4/Q0jMufKTLyw0+YE6XikNfnUb1BhbJrzElEa5BhXBJRW/A4pdYA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__error/-/ember__error-3.16.3.tgz}
     name: '@types/ember__error'
     version: 3.16.3
+    dev: true
+
+  registry.npmjs.org/@types/ember__error@4.0.3:
+    resolution: {integrity: sha512-lQ/ZrPS5s7LjYhML8TCfcKyMumAy7Hh+9CI66WShHumuojSZZm36LhpaUXC0sMf5uF3uKimaVrvvvrvBLDePZg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__error/-/ember__error-4.0.3.tgz}
+    name: '@types/ember__error'
+    version: 4.0.3
+    dev: true
+
+  registry.npmjs.org/@types/ember__helper@4.0.3(@babel/core@7.23.0):
+    resolution: {integrity: sha512-8s8fgZvpAysHrRnKy9abYRLq7ughcBU/k0FYKqlDPVQewp4lhggYlltj3MZhf6WNnbtG4G0fzvOIRa6sm33TpQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__helper/-/ember__helper-4.0.3.tgz}
+    id: registry.npmjs.org/@types/ember__helper/4.0.3
+    name: '@types/ember__helper'
+    version: 4.0.3
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@types/ember__modifier@4.0.6(@babel/core@7.23.0):
+    resolution: {integrity: sha512-4V1IBPLHsnQ45ma+eNDVZO41Bxbv1WGyd8moNxqShBbF9LpyFesbV4GTf/x5By3U8FwY1VzRFKPbEoulx9R2KQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__modifier/-/ember__modifier-4.0.6.tgz}
+    id: registry.npmjs.org/@types/ember__modifier/4.0.6
+    name: '@types/ember__modifier'
+    version: 4.0.6
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__owner': registry.npmjs.org/@types/ember__owner@4.0.6
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   registry.npmjs.org/@types/ember__object@3.12.10:
@@ -2922,10 +3256,35 @@ packages:
       '@types/rsvp': registry.npmjs.org/@types/rsvp@4.0.5
     dev: true
 
+  registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0):
+    resolution: {integrity: sha512-ZpMUVWnOr/FespCyriI2I3PvvJLUVkVZx8tlCFql9Cd3dqMF1O4RN4IdaFTWHcT/4rNdjAFKF5CxzoVSzKU/9A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__object/-/ember__object-4.0.8.tgz}
+    id: registry.npmjs.org/@types/ember__object/4.0.8
+    name: '@types/ember__object'
+    version: 4.0.8
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/rsvp': registry.npmjs.org/@types/rsvp@4.0.5
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@types/ember__owner@4.0.6:
+    resolution: {integrity: sha512-IwTLGZ6DuKCGvLJd1lSFo090cErMwOletj0MSOIIav9CakcSJlMpn55lwKxnWq52ve0zo0jruzan6SDSj4sFuA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__owner/-/ember__owner-4.0.6.tgz}
+    name: '@types/ember__owner'
+    version: 4.0.6
+    dev: true
+
   registry.npmjs.org/@types/ember__polyfills@3.12.4:
     resolution: {integrity: sha512-v/LoWB/zBvkgOnxUOkTxkCkZLmwWp3LDASiK3VO2XlUqG2ES+0yECLjhMJNT3ZHaSCVhkTOKvOIaQG/hBiwWPw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__polyfills/-/ember__polyfills-3.12.4.tgz}
     name: '@types/ember__polyfills'
     version: 3.12.4
+    dev: true
+
+  registry.npmjs.org/@types/ember__polyfills@4.0.3:
+    resolution: {integrity: sha512-B/UF8BlQGKo5ixqfNI8D3E3wrR/Nxf6c9Z4f10IdVE5oeRUs8cciY4S1xImoYZQ3QhZKvXDUh1Tpr2S3QqHIxw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__polyfills/-/ember__polyfills-4.0.3.tgz}
+    name: '@types/ember__polyfills'
+    version: 4.0.3
     dev: true
 
   registry.npmjs.org/@types/ember__routing@3.16.20:
@@ -2939,10 +3298,37 @@ packages:
       '@types/ember__service': registry.npmjs.org/@types/ember__service@3.16.5
     dev: true
 
+  registry.npmjs.org/@types/ember__routing@4.0.16(@babel/core@7.23.0):
+    resolution: {integrity: sha512-ydxQ7LVkkNEsnibnRX8hofF/6uHFRwdbTfS3o3pHC5rchfhEg2/G2hPOdF60UIikTcn6JfekjViz+HDwNwqUQw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__routing/-/ember__routing-4.0.16.tgz}
+    id: registry.npmjs.org/@types/ember__routing/4.0.16
+    name: '@types/ember__routing'
+    version: 4.0.16
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+      '@types/ember__controller': registry.npmjs.org/@types/ember__controller@4.0.8(@babel/core@7.23.0)
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+      '@types/ember__service': registry.npmjs.org/@types/ember__service@4.0.5(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__runloop@3.16.7:
     resolution: {integrity: sha512-HWbmI6tKiVmTFr14LbcsIVw14HXGxz+Qo8fXEubzmrvP37thxpS0oF80jfVF77LYEG//C/LULn5c0MPS6pUMTg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__runloop/-/ember__runloop-3.16.7.tgz}
     name: '@types/ember__runloop'
     version: 3.16.7
+    dev: true
+
+  registry.npmjs.org/@types/ember__runloop@4.0.6(@babel/core@7.23.0):
+    resolution: {integrity: sha512-Lh/4ViAiD4xcAEyhcTjz3p79j7cQSHc2Y+eZZyXhASugHjdKI5e0SzpZTWiJipE4n6aqB68BTdhiu5K8p5Zbrg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__runloop/-/ember__runloop-4.0.6.tgz}
+    id: registry.npmjs.org/@types/ember__runloop/4.0.6
+    name: '@types/ember__runloop'
+    version: 4.0.6
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   registry.npmjs.org/@types/ember__service@3.16.5:
@@ -2953,6 +3339,18 @@ packages:
       '@types/ember__object': registry.npmjs.org/@types/ember__object@3.12.10
     dev: true
 
+  registry.npmjs.org/@types/ember__service@4.0.5(@babel/core@7.23.0):
+    resolution: {integrity: sha512-olpjH+VrWJCeEDyy0/YJ4iv7K9XXgn0JO44+smuCOinWEUSyEehPb40bn4ol4KKIK02cPJgA8aYi0Fy0jebOsg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__service/-/ember__service-4.0.5.tgz}
+    id: registry.npmjs.org/@types/ember__service/4.0.5
+    name: '@types/ember__service'
+    version: 4.0.5
+    dependencies:
+      '@types/ember__object': registry.npmjs.org/@types/ember__object@4.0.8(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__string@2.0.3:
     resolution: {integrity: sha512-eHdsIfCvTMXLTggJTKu6kjXtuosc99mOU+ZxURoJwWiizCpcoz28bdT7swEIie/kw+NIjD7OfbJJOFd7bQO5bw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__string/-/ember__string-2.0.3.tgz}
     name: '@types/ember__string'
@@ -2961,10 +3359,24 @@ packages:
       '@types/ember__template': registry.npmjs.org/@types/ember__template@3.16.4
     dev: true
 
+  registry.npmjs.org/@types/ember__string@3.16.3:
+    resolution: {integrity: sha512-0T9ofzm9LL/bSG5u1SxKx/j2h/bHKkl5NKjGCNbFQxEKBw4f2cs6+AMDgWke9z+qrRRIz9vGEtMXnA3yJrO2xA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__string/-/ember__string-3.16.3.tgz}
+    name: '@types/ember__string'
+    version: 3.16.3
+    dependencies:
+      '@types/ember__template': registry.npmjs.org/@types/ember__template@4.0.3
+    dev: true
+
   registry.npmjs.org/@types/ember__template@3.16.4:
     resolution: {integrity: sha512-Z/eFOq/Qh5IC3ox3bSZwQzW9fDZE52lquYps2uESIkAmakMi/IHPzon3JdiFXore2KX5Ddyv6OZXo81Zai6g9A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__template/-/ember__template-3.16.4.tgz}
     name: '@types/ember__template'
     version: 3.16.4
+    dev: true
+
+  registry.npmjs.org/@types/ember__template@4.0.3:
+    resolution: {integrity: sha512-lATq4nSKq/V7Gw261HwoEgpu5jbqDv7/FeO19/Cvh+jbifAvrYfDPm1hOSShj7Ths7yL16O0KeuPQag3rSAv9g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__template/-/ember__template-4.0.3.tgz}
+    name: '@types/ember__template'
+    version: 4.0.3
     dev: true
 
   registry.npmjs.org/@types/ember__test@3.16.4:
@@ -2975,10 +3387,34 @@ packages:
       '@types/ember__application': registry.npmjs.org/@types/ember__application@3.16.7
     dev: true
 
+  registry.npmjs.org/@types/ember__test@4.0.3(@babel/core@7.23.0):
+    resolution: {integrity: sha512-aPfPBdWaOSj9Tc5ol/KU1vA2M35iB8knsmSxopIZHb4Mx/oTuAp3JzC4zm4DZYfuF5+l/rng6Zru+4PkG2KQRw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__test/-/ember__test-4.0.3.tgz}
+    id: registry.npmjs.org/@types/ember__test/4.0.3
+    name: '@types/ember__test'
+    version: 4.0.3
+    dependencies:
+      '@types/ember__application': registry.npmjs.org/@types/ember__application@4.0.8(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
+    dev: true
+
   registry.npmjs.org/@types/ember__utils@3.16.5:
     resolution: {integrity: sha512-9coUBii1Gv73Uh4RFh1sgRjHEylpSaBSC8hfYeK8/+tZxjfBhujzv09SX/IWQbIjg/+mIUkoGg+jeybNMT/Bqg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__utils/-/ember__utils-3.16.5.tgz}
     name: '@types/ember__utils'
     version: 3.16.5
+    dev: true
+
+  registry.npmjs.org/@types/ember__utils@4.0.4(@babel/core@7.23.0):
+    resolution: {integrity: sha512-RP6Phi3/oYskNxrH2rm4ZK0yNjxCRKRyY0A796gE2Mv31S6+kkRobqZ/LpH9bVa2FUgdl/4XZIyX/W4L1UWwig==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/ember__utils/-/ember__utils-4.0.4.tgz}
+    id: registry.npmjs.org/@types/ember__utils/4.0.4
+    name: '@types/ember__utils'
+    version: 4.0.4
+    dependencies:
+      '@types/ember': registry.npmjs.org/@types/ember@4.0.6(@babel/core@7.23.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - supports-color
     dev: true
 
   registry.npmjs.org/@types/eslint-scope@3.7.5:
@@ -3174,6 +3610,12 @@ packages:
     version: 4.0.5
     dev: true
 
+  registry.npmjs.org/@types/semver@7.5.3:
+    resolution: {integrity: sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/semver/-/semver-7.5.3.tgz}
+    name: '@types/semver'
+    version: 7.5.3
+    dev: true
+
   registry.npmjs.org/@types/send@0.17.2:
     resolution: {integrity: sha512-aAG6yRf6r0wQ29bkS+x97BIs64ZLxeE/ARwyS6wrldMm3C1MdKwCcnnEwMC1slI8wuxJOpiUH9MioC0A0i+GJw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@types/send/-/send-0.17.2.tgz}
     name: '@types/send'
@@ -3228,6 +3670,158 @@ packages:
     version: 17.0.28
     dependencies:
       '@types/yargs-parser': registry.npmjs.org/@types/yargs-parser@21.0.1
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/eslint-plugin@6.7.5(@typescript-eslint/parser@6.7.5)(eslint@8.51.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-JhtAwTRhOUcP96D0Y6KYnwig/MRQbOoLGXTON2+LlyB/N35SP9j1boai2zzwXb7ypKELXMx3DVk9UTaEq1vHEw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-6.7.5.tgz}
+    id: registry.npmjs.org/@typescript-eslint/eslint-plugin/6.7.5
+    name: '@typescript-eslint/eslint-plugin'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      '@typescript-eslint/parser': ^6.0.0 || ^6.0.0-alpha
+      eslint: ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@eslint-community/regexpp': registry.npmjs.org/@eslint-community/regexpp@4.9.1
+      '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser@6.7.5(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/scope-manager': registry.npmjs.org/@typescript-eslint/scope-manager@6.7.5
+      '@typescript-eslint/type-utils': registry.npmjs.org/@typescript-eslint/type-utils@6.7.5(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/utils': registry.npmjs.org/@typescript-eslint/utils@6.7.5(eslint@8.51.0)(typescript@5.2.2)
+      '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.7.5
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@8.1.1)
+      eslint: registry.npmjs.org/eslint@8.51.0
+      graphemer: registry.npmjs.org/graphemer@1.4.0
+      ignore: registry.npmjs.org/ignore@5.2.4
+      natural-compare: registry.npmjs.org/natural-compare@1.4.0
+      semver: registry.npmjs.org/semver@7.5.4
+      ts-api-utils: registry.npmjs.org/ts-api-utils@1.0.3(typescript@5.2.2)
+      typescript: registry.npmjs.org/typescript@5.2.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/parser@6.7.5(eslint@8.51.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-bIZVSGx2UME/lmhLcjdVc7ePBwn7CLqKarUBL4me1C5feOd663liTGjMBGVcGr+BhnSLeP4SgwdvNnnkbIdkCw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/parser/-/parser-6.7.5.tgz}
+    id: registry.npmjs.org/@typescript-eslint/parser/6.7.5
+    name: '@typescript-eslint/parser'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/scope-manager': registry.npmjs.org/@typescript-eslint/scope-manager@6.7.5
+      '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.7.5
+      '@typescript-eslint/typescript-estree': registry.npmjs.org/@typescript-eslint/typescript-estree@6.7.5(typescript@5.2.2)
+      '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.7.5
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@8.1.1)
+      eslint: registry.npmjs.org/eslint@8.51.0
+      typescript: registry.npmjs.org/typescript@5.2.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/scope-manager@6.7.5:
+    resolution: {integrity: sha512-GAlk3eQIwWOJeb9F7MKQ6Jbah/vx1zETSDw8likab/eFcqkjSD7BI75SDAeC5N2L0MmConMoPvTsmkrg71+B1A==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/scope-manager/-/scope-manager-6.7.5.tgz}
+    name: '@typescript-eslint/scope-manager'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    dependencies:
+      '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.7.5
+      '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.7.5
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/type-utils@6.7.5(eslint@8.51.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-Gs0qos5wqxnQrvpYv+pf3XfcRXW6jiAn9zE/K+DlmYf6FcpxeNYN0AIETaPR7rHO4K2UY+D0CIbDP9Ut0U4m1g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/type-utils/-/type-utils-6.7.5.tgz}
+    id: registry.npmjs.org/@typescript-eslint/type-utils/6.7.5
+    name: '@typescript-eslint/type-utils'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/typescript-estree': registry.npmjs.org/@typescript-eslint/typescript-estree@6.7.5(typescript@5.2.2)
+      '@typescript-eslint/utils': registry.npmjs.org/@typescript-eslint/utils@6.7.5(eslint@8.51.0)(typescript@5.2.2)
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@8.1.1)
+      eslint: registry.npmjs.org/eslint@8.51.0
+      ts-api-utils: registry.npmjs.org/ts-api-utils@1.0.3(typescript@5.2.2)
+      typescript: registry.npmjs.org/typescript@5.2.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/types@6.7.5:
+    resolution: {integrity: sha512-WboQBlOXtdj1tDFPyIthpKrUb+kZf2VroLZhxKa/VlwLlLyqv/PwUNgL30BlTVZV1Wu4Asu2mMYPqarSO4L5ZQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/types/-/types-6.7.5.tgz}
+    name: '@typescript-eslint/types'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/typescript-estree@6.7.5(typescript@5.2.2):
+    resolution: {integrity: sha512-NhJiJ4KdtwBIxrKl0BqG1Ur+uw7FiOnOThcYx9DpOGJ/Abc9z2xNzLeirCG02Ig3vkvrc2qFLmYSSsaITbKjlg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/typescript-estree/-/typescript-estree-6.7.5.tgz}
+    id: registry.npmjs.org/@typescript-eslint/typescript-estree/6.7.5
+    name: '@typescript-eslint/typescript-estree'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dependencies:
+      '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.7.5
+      '@typescript-eslint/visitor-keys': registry.npmjs.org/@typescript-eslint/visitor-keys@6.7.5
+      debug: registry.npmjs.org/debug@4.3.4(supports-color@8.1.1)
+      globby: registry.npmjs.org/globby@11.1.0
+      is-glob: registry.npmjs.org/is-glob@4.0.3
+      semver: registry.npmjs.org/semver@7.5.4
+      ts-api-utils: registry.npmjs.org/ts-api-utils@1.0.3(typescript@5.2.2)
+      typescript: registry.npmjs.org/typescript@5.2.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/utils@6.7.5(eslint@8.51.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-pfRRrH20thJbzPPlPc4j0UNGvH1PjPlhlCMq4Yx7EGjV7lvEeGX0U6MJYe8+SyFutWgSHsdbJ3BXzZccYggezA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/utils/-/utils-6.7.5.tgz}
+    id: registry.npmjs.org/@typescript-eslint/utils/6.7.5
+    name: '@typescript-eslint/utils'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      eslint: ^7.0.0 || ^8.0.0
+    dependencies:
+      '@eslint-community/eslint-utils': registry.npmjs.org/@eslint-community/eslint-utils@4.4.0(eslint@8.51.0)
+      '@types/json-schema': registry.npmjs.org/@types/json-schema@7.0.13
+      '@types/semver': registry.npmjs.org/@types/semver@7.5.3
+      '@typescript-eslint/scope-manager': registry.npmjs.org/@typescript-eslint/scope-manager@6.7.5
+      '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.7.5
+      '@typescript-eslint/typescript-estree': registry.npmjs.org/@typescript-eslint/typescript-estree@6.7.5(typescript@5.2.2)
+      eslint: registry.npmjs.org/eslint@8.51.0
+      semver: registry.npmjs.org/semver@7.5.4
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  registry.npmjs.org/@typescript-eslint/visitor-keys@6.7.5:
+    resolution: {integrity: sha512-3MaWdDZtLlsexZzDSdQWsFQ9l9nL8B80Z4fImSpyllFC/KLqWQRdEcB+gGGO+N3Q2uL40EsG66wZLsohPxNXvg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@typescript-eslint/visitor-keys/-/visitor-keys-6.7.5.tgz}
+    name: '@typescript-eslint/visitor-keys'
+    version: 6.7.5
+    engines: {node: ^16.0.0 || >=18.0.0}
+    dependencies:
+      '@typescript-eslint/types': registry.npmjs.org/@typescript-eslint/types@6.7.5
+      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys@3.4.3
     dev: true
 
   registry.npmjs.org/@webassemblyjs/ast@1.11.6:
@@ -7155,7 +7749,7 @@ packages:
       '@babel/plugin-proposal-class-properties': registry.npmjs.org/@babel/plugin-proposal-class-properties@7.18.6(@babel/core@7.23.0)
       '@babel/plugin-proposal-decorators': registry.npmjs.org/@babel/plugin-proposal-decorators@7.23.0(@babel/core@7.23.0)
       '@babel/preset-env': registry.npmjs.org/@babel/preset-env@7.22.20(@babel/core@7.23.0)
-      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2
+      '@embroider/macros': registry.npmjs.org/@embroider/macros@1.13.2(@glint/template@1.2.1)
       '@embroider/shared-internals': registry.npmjs.org/@embroider/shared-internals@2.5.0(supports-color@8.1.1)
       babel-loader: registry.npmjs.org/babel-loader@8.3.0(@babel/core@7.23.0)(webpack@5.88.2)
       babel-plugin-ember-modules-api-polyfill: registry.npmjs.org/babel-plugin-ember-modules-api-polyfill@3.5.0
@@ -7704,7 +8298,6 @@ packages:
       ember-cli-string-utils: registry.npmjs.org/ember-cli-string-utils@1.1.0
     transitivePeerDependencies:
       - supports-color
-    dev: false
 
   registry.npmjs.org/ember-qunit@6.2.0(@ember/test-helpers@2.9.4)(ember-source@4.12.3)(qunit@2.20.0)(webpack@5.88.2):
     resolution: {integrity: sha512-mC+0bp8DwWzJLn8SW3GS8KDZIkl4yLsNYwMi5Dw6+aFllq7FM2crd/dfY4MuOIHK7GKdjtmWJTMGnjSpeSayaw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/ember-qunit/-/ember-qunit-6.2.0.tgz}
@@ -16463,6 +17056,18 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
+  registry.npmjs.org/ts-api-utils@1.0.3(typescript@5.2.2):
+    resolution: {integrity: sha512-wNMeqtMz5NtwpT/UZGY5alT+VoKdSsOOP/kqHFcUW1P/VRhH2wJ48+DN2WwUliNbQ976ETwDL0Ifd2VVvgonvg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/ts-api-utils/-/ts-api-utils-1.0.3.tgz}
+    id: registry.npmjs.org/ts-api-utils/1.0.3
+    name: ts-api-utils
+    version: 1.0.3
+    engines: {node: '>=16.13.0'}
+    peerDependencies:
+      typescript: '>=4.2.0'
+    dependencies:
+      typescript: registry.npmjs.org/typescript@5.2.2
+    dev: true
+
   registry.npmjs.org/tslib@1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz}
     name: tslib
@@ -16596,6 +17201,14 @@ packages:
     resolution: {integrity: sha512-GQ90TcKpIH4XxYTI2F98yEQYZgjNMOGPpOgdjIBhaLaWji5HPWlRnZ4AeA1hfBxtY7bCGDJsqDDHk/KaHOl5bA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/typescript-memoize/-/typescript-memoize-1.1.1.tgz}
     name: typescript-memoize
     version: 1.1.1
+
+  registry.npmjs.org/typescript@5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/typescript/-/typescript-5.2.2.tgz}
+    name: typescript
+    version: 5.2.2
+    engines: {node: '>=14.17'}
+    hasBin: true
+    dev: true
 
   registry.npmjs.org/uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz}
@@ -16947,6 +17560,49 @@ packages:
     dependencies:
       acorn: registry.npmjs.org/acorn@8.10.0
       acorn-walk: registry.npmjs.org/acorn-walk@8.2.0
+    dev: true
+
+  registry.npmjs.org/vscode-jsonrpc@8.1.0:
+    resolution: {integrity: sha512-6TDy/abTQk+zDGYazgbIPc+4JoXdwC8NHU9Pbn4UJP1fehUyZmM4RHp5IthX7A6L5KS30PRui+j+tbbMMMafdw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-jsonrpc/-/vscode-jsonrpc-8.1.0.tgz}
+    name: vscode-jsonrpc
+    version: 8.1.0
+    engines: {node: '>=14.0.0'}
+    dev: true
+
+  registry.npmjs.org/vscode-languageserver-protocol@3.17.3:
+    resolution: {integrity: sha512-924/h0AqsMtA5yK22GgMtCYiMdCOtWTSGgUOkgEDX+wk2b0x4sAfLiO4NxBxqbiVtz7K7/1/RgVrVI0NClZwqA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-languageserver-protocol/-/vscode-languageserver-protocol-3.17.3.tgz}
+    name: vscode-languageserver-protocol
+    version: 3.17.3
+    dependencies:
+      vscode-jsonrpc: registry.npmjs.org/vscode-jsonrpc@8.1.0
+      vscode-languageserver-types: registry.npmjs.org/vscode-languageserver-types@3.17.3
+    dev: true
+
+  registry.npmjs.org/vscode-languageserver-textdocument@1.0.11:
+    resolution: {integrity: sha512-X+8T3GoiwTVlJbicx/sIAF+yuJAqz8VvwJyoMVhwEMoEKE/fkDmrqUgDMyBECcM2A2frVZIUj5HI/ErRXCfOeA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-languageserver-textdocument/-/vscode-languageserver-textdocument-1.0.11.tgz}
+    name: vscode-languageserver-textdocument
+    version: 1.0.11
+    dev: true
+
+  registry.npmjs.org/vscode-languageserver-types@3.17.3:
+    resolution: {integrity: sha512-SYU4z1dL0PyIMd4Vj8YOqFvHu7Hz/enbWtpfnVbJHU4Nd1YNYx8u0ennumc6h48GQNeOLxmwySmnADouT/AuZA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-languageserver-types/-/vscode-languageserver-types-3.17.3.tgz}
+    name: vscode-languageserver-types
+    version: 3.17.3
+    dev: true
+
+  registry.npmjs.org/vscode-languageserver@8.1.0:
+    resolution: {integrity: sha512-eUt8f1z2N2IEUDBsKaNapkz7jl5QpskN2Y0G01T/ItMxBxw1fJwvtySGB9QMecatne8jFIWJGWI61dWjyTLQsw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-languageserver/-/vscode-languageserver-8.1.0.tgz}
+    name: vscode-languageserver
+    version: 8.1.0
+    hasBin: true
+    dependencies:
+      vscode-languageserver-protocol: registry.npmjs.org/vscode-languageserver-protocol@3.17.3
+    dev: true
+
+  registry.npmjs.org/vscode-uri@3.0.8:
+    resolution: {integrity: sha512-AyFQ0EVmsOZOlAnxoFOGOq1SQDWAB7C6aqMGS23svWAllfOaxbuFvcT8D1i8z3Gyn8fraVeZNNmN6e9bxxXkKw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/vscode-uri/-/vscode-uri-3.0.8.tgz}
+    name: vscode-uri
+    version: 3.0.8
     dev: true
 
   registry.npmjs.org/w3c-hr-time@1.0.2:
