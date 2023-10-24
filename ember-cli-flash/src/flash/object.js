@@ -125,9 +125,10 @@ export default class FlashObject {
   }
 
   _teardown() {
-    const queue = this.flashService?.queue;
-    if (queue) {
-      queue.removeObject(this);
+    if (this.flashService?.queue) {
+      this.flashService.queue = this.flashService.queue.filter(
+        (flash) => flash !== this,
+      );
     }
     this.destroy();
     this.onDidDestroyMessage?.();
