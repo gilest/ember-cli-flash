@@ -1,8 +1,7 @@
-/* eslint-disable ember/no-computed-properties-in-native-classes */
 import Service from '@ember/service';
 import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
-import { set, setProperties, computed } from '@ember/object';
+import { set, setProperties } from '@ember/object';
 import { classify } from '@ember/string';
 import FlashMessage from '../flash/object';
 import objectWithout from '../utils/object-without';
@@ -91,8 +90,10 @@ export default class FlashMessagesService extends Service {
     );
 
     const flashService = this;
-    const allDefaults = this.flashMessageDefaults ?? {};
-    const defaults = objectWithout(allDefaults, ['types', 'preventDuplicates']);
+    const defaults = objectWithout(this.flashMessageDefaults, [
+      'types',
+      'preventDuplicates',
+    ]);
 
     const flashMessageOptions = Object.assign({}, defaults, { flashService });
 
@@ -107,7 +108,7 @@ export default class FlashMessagesService extends Service {
   }
 
   _getOptionOrDefault(key, value) {
-    const defaults = this.flashMessageDefaults ?? {};
+    const defaults = this.flashMessageDefaults;
     const defaultOption = defaults[key];
 
     if (typeOf(value) === 'undefined') {
@@ -117,7 +118,6 @@ export default class FlashMessagesService extends Service {
     return value;
   }
 
-  @computed
   get flashMessageDefaults() {
     const config = getOwner(this).resolveRegistration('config:environment');
     const overrides = config.flashMessageDefaults ?? {};
@@ -125,7 +125,7 @@ export default class FlashMessagesService extends Service {
   }
 
   _setDefaults() {
-    const defaults = this.flashMessageDefaults ?? {};
+    const defaults = this.flashMessageDefaults;
 
     for (let key in defaults) {
       const classifiedKey = classify(key);
