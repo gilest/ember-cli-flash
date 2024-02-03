@@ -2,17 +2,31 @@ import { cancel, later } from '@ember/runloop';
 import { isTesting, macroCondition } from '@embroider/macros';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
+import { EmberRunTimer } from '@ember/runloop/types';
 
 // Disable timeout by default when running tests
 const defaultDisableTimeout = macroCondition(isTesting()) ? true : false;
 
 export default class FlashObject {
-  exitTimer = null;
   @tracked exiting = false;
   @tracked message = '';
+  sticky?: boolean;
+  extendedTimeout?: number;
+  timeout: number;
+
+  initializedTime: number;
   isExitable = true;
-  initializedTime = null;
   isDestroyed = false;
+
+  exitTaskInstance?: EmberRunTimer;
+  timerTaskInstance?: EmberRunTimer;
+
+  testHelperDisableTimeout?: boolean;
+  flashService?: FlashMessagesService;
+
+  onDestroy?: () => void;
+  onDidExitMessage?: () => void;
+  onDidDestroyMessage?: () => void;
 
   // testHelperDisableTimeout – Set by `disableTimeout` and `enableTimeout` in test-support.js
 
@@ -55,9 +69,7 @@ export default class FlashObject {
   }
 
   destroy() {
-    if (this.onDestroy) {
-      this.onDestroy();
-    }
+    this.onDestroy?.();
 
     this._cancelTimer();
     this._cancelTimer('exitTaskInstance');
