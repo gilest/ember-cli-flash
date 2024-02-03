@@ -13,6 +13,7 @@ export default class FlashObject {
   sticky?: boolean;
   extendedTimeout?: number;
   timeout: number;
+  priority: number;
 
   initializedTime: number;
   isExitable = true;

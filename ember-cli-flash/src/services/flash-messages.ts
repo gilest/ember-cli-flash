@@ -9,8 +9,31 @@ import flashMessageOptions from '../utils/flash-message-options';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 
+interface MessageOptions {
+  type: string;
+  priority: number;
+  timeout: number;
+  sticky: boolean;
+  showProgress: boolean;
+  extendedTimeout: number;
+  destroyOnClick: boolean;
+  onDestroy: () => void;
+  [key: string]: unknown;
+}
+
+interface CustomMessageInfo extends Partial<MessageOptions> {
+  message: string;
+}
+
+interface FlashFunction {
+  (message: string, options?: Partial<MessageOptions>): FlashMessagesService;
+}
+// TODO define flash functions for each type
+
 export default class FlashMessagesService extends Service {
-  @tracked queue = [];
+  @tracked queue: FlashMessage[] = [];
+
+  defaultPreventDuplicates = false;
 
   get arrangedQueue() {
     return this.queue.sort(function (a, b) {
@@ -38,15 +61,15 @@ export default class FlashMessagesService extends Service {
     registerDestructor(this, this.clearMessages.bind(this));
   }
 
-  add(options = {}) {
-    this._enqueue(this._newFlashMessage(options));
+  add(messageInfo: CustomMessageInfo) {
+    this._enqueue(this._newFlashMessage(messageInfo));
 
     return this;
   }
 
   clearMessages() {
     if (isNone(this.queue)) {
-      return;
+      return this;
     }
 
     this.queue.forEach((flash) => flash.destroyMessage());
@@ -55,28 +78,27 @@ export default class FlashMessagesService extends Service {
     return this;
   }
 
-  registerTypes(types = []) {
+  registerTypes(types: string[] = []) {
     types.forEach((type) => this._registerType(type));
 
     return this;
   }
 
-  peekFirst() {
-    return this.queue.at(0);
+  peekFirst(): FlashMessage | undefined {
+    return this.queue[0];
   }
 
-  peekLast() {
-    return this.queue.at(-1);
+  peekLast(): FlashMessage | undefined {
+    return this.queue[this.queue.length - 1];
   }
 
-  getFlashObject() {
-    const errorText = 'A flash message must be added before it can be returned';
-    assert(errorText, this.queue.length);
+  getFlashObject(): FlashMessage | undefined {
+    assert('A flash message must be added before it can be returned', this.queue.length);
 
     return this.peekLast();
   }
 
-  _newFlashMessage(options = {}) {
+  _newFlashMessage(options: CustomMessageInfo) {
     assert(
       'The flash message cannot be empty when preventDuplicates is enabled.',
       this.defaultPreventDuplicates ? options.message : true,
@@ -134,14 +156,11 @@ export default class FlashMessagesService extends Service {
     this.registerTypes(this.defaultTypes ?? []);
   }
 
-  _registerType(type) {
+  _registerType(type: string) {
     assert('The flash type cannot be undefined', type);
 
-    this[type] = (message, options = {}) => {
-      const flashMessageOptions = Object.assign({}, options);
-      Object.assign(flashMessageOptions, { message, type });
-
-      return this.add(flashMessageOptions);
+    this[type] = (message: string, options = {}) => {
+      return this.add({ ...options, message, type });
     };
   }
 
