@@ -1,4 +1,4 @@
-import FlashObject from './flash/object';
+import FlashObject from './flash/object.ts';
 
 export function disableTimeout() {
   FlashObject.prototype.testHelperDisableTimeout = true;

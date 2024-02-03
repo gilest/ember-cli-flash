@@ -2,12 +2,12 @@ import Service from '@ember/service';
 import { typeOf, isNone } from '@ember/utils';
 import { warn, assert } from '@ember/debug';
 import { classify } from '@ember/string';
-import FlashMessage from '../flash/object';
-import objectWithout from '../utils/object-without';
 import { getOwner } from '@ember/application';
-import flashMessageOptions from '../utils/flash-message-options';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
+import flashMessageOptions from '../utils/flash-message-options.ts';
+import FlashMessage from '../flash/object.ts';
+import objectWithout from '../utils/object-without.ts';
 
 interface MessageOptions {
   type: string;

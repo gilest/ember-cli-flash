@@ -3,6 +3,7 @@ import { isTesting, macroCondition } from '@embroider/macros';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { EmberRunTimer } from '@ember/runloop/types';
+import type FlashMessagesService from '../services/flash-messages.ts';
 
 // Disable timeout by default when running tests
 const defaultDisableTimeout = macroCondition(isTesting()) ? true : false;
