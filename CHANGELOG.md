@@ -1,5 +1,37 @@
 # Changelog
 
+## Release (2024-03-16)
+
+ember-cli-flash 6.0.0 (major)
+
+#### :boom: Breaking Change
+* `ember-cli-flash`, `test-app`
+  * [#409](https://github.com/adopted-ember-addons/ember-cli-flash/pull/409) Modernise `FlashMessagesService` ([@gilest](https://github.com/gilest))
+  * [#394](https://github.com/adopted-ember-addons/ember-cli-flash/pull/394) Convert `FlashObject` to native class ([@gilest](https://github.com/gilest))
+* `ember-cli-flash`
+  * [#410](https://github.com/adopted-ember-addons/ember-cli-flash/pull/410) Remove computed decorators from FlashMessage component ([@gilest](https://github.com/gilest))
+
+#### :rocket: Enhancement
+* `ember-cli-flash`
+  * [#405](https://github.com/adopted-ember-addons/ember-cli-flash/pull/405) Add `FlashMessage` to TypeScript definitions ([@charlesfries](https://github.com/charlesfries))
+
+#### :bug: Bug Fix
+* `ember-cli-flash`
+  * [#399](https://github.com/adopted-ember-addons/ember-cli-flash/pull/399) fix(types): add typesVersions map ([@simonihmig](https://github.com/simonihmig))
+
+#### :house: Internal
+* `ember-cli-flash`
+  * [#406](https://github.com/adopted-ember-addons/ember-cli-flash/pull/406) Prepare Release ([@github-actions[bot]](https://github.com/apps/github-actions))
+* Other
+  * [#407](https://github.com/adopted-ember-addons/ember-cli-flash/pull/407) Update release-plan to get the latest bugfixes ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 5
+- Charles Fries ([@charlesfries](https://github.com/charlesfries))
+- Giles Thompson ([@gilest](https://github.com/gilest))
+- Simon Ihmig ([@simonihmig](https://github.com/simonihmig))
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+- [@github-actions[bot]](https://github.com/apps/github-actions)
+
 ## Release (2024-02-29)
 
 ember-cli-flash 5.1.0 (minor)
